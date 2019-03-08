@@ -139,12 +139,11 @@ describe('#check', () => {
             telegraf: true,
             protocol: serverType
           }, clientType);
-          assert.throws(() => {
+
+          expect(() => {
             statsd.check('check.name', statsd.CHECKS.OK, null, ['foo', 'bar']);
-          }, err => {
-            assert.ok(err);
-            done();
-          });
+          }).toThrow();
+          done();
         });
       });
 

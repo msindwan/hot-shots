@@ -140,12 +140,10 @@ describe('#event', () => {
             telegraf: true,
             protocol: serverType
           }, clientType);
-          assert.throws(() => {
+          expect(() => {
             statsd.event('test title', 'another desc', null, ['foo', 'bar']);
-          }, err => {
-            assert.ok(err);
-            done();
-          });
+          }).toThrow();
+          done();
         });
       });
 
