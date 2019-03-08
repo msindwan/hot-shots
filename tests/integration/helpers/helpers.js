@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const net = require('net');
 
-const StatsD = require('../../lib/statsd.js');
+const StatsD = require('../../../index.js');
 
 const CLIENT = 'client';
 const CHILD_CLIENT = 'child client';
@@ -128,15 +128,7 @@ function createServer(serverType, onListening) {
  * @param {*} clientType
  */
 function createHotShotsClient(args, clientType) {
-   /* eslint-disable require-jsdoc */
-  function construct(ctor, constructArgs) {
-    function F() {
-      return ctor.apply(this, constructArgs);
-    }
-    F.prototype = ctor.prototype;
-    return new F();
-  }
-  const client = Array.isArray(args) ? construct(StatsD, args) : new StatsD(args);
+  const client = Array.isArray(args) ? new StatsD(...args) : new StatsD(args);
 
   if (clientType === CLIENT) {
     return client;

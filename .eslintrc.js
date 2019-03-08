@@ -61,7 +61,7 @@ module.exports = {
         "func-style": "off",
         "function-paren-newline": "off",
         "generator-star-spacing": "error",
-        "global-require": "error",
+        "global-require": "off",
         "guard-for-in": "off",
         "handle-callback-err": "error",
         "id-blacklist": "error",
@@ -287,5 +287,9 @@ module.exports = {
             "error",
             "never"
         ]
+    },
+    env: {
+        jest: true,
+        node: true
     }
 };

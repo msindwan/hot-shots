@@ -1,5 +1,5 @@
 const execSync = require('child_process').execSync; // eslint-disable-line no-sync
-const StatsD = require('../lib/statsd');
+const StatsD = require('../../index.js');
 const assert = require('assert');
 const helpers = require('./helpers/helpers.js');
 

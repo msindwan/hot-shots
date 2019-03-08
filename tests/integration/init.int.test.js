@@ -3,7 +3,7 @@ const dgram = require('dgram');
 const dns = require('dns');
 const net = require('net');
 
-const StatsD = require('../lib/statsd');
+const StatsD = require('../../index.js');
 const helpers = require('./helpers/helpers.js');
 
 const closeAll = helpers.closeAll;
@@ -92,7 +92,7 @@ describe('#init', () => {
     assert.equal(statsd.prefix, '');
     assert.equal(statsd.suffix, '');
     assert.equal(global.statsd, undefined);
-    assert.equal(statsd.mock, undefined);
+    assert.equal(statsd.mock, false);
     assert.deepEqual(statsd.globalTags, []);
     assert.ok(!statsd.mock);
     assert.equal(statsd.sampleRate, 1);

@@ -30,6 +30,7 @@ All initialization parameters are optional.
 Parameters (specified as one object passed into hot-shots):
 * `host`:        The host to send stats to `default: localhost`
 * `port`:        The port to send stats to `default: 8125`
+* `path`:        The path to the unix domain socket if using `unix_dgram` protocol
 * `prefix`:      What to prefix each stat name with `default: ''`
 * `suffix`:      What to suffix each stat name with `default: ''`
 * `globalize`:   Expose this StatsD instance globally? `default: false`
@@ -193,13 +194,9 @@ Some of the functionality mentioned above is specific to DogStatsD or Telegraf. 
 
 As usual, callbacks will have an error as their first parameter.  You can have an error in both the message and close callbacks.
 
-If the optional callback is not given, an error is thrown in some
-cases and a console.log message is used in others.  An error will only
-be explicitly thrown when there is a missing callback or if it is some potential configuration issue to be fixed.
+If the optional callback is not given, an error is thrown in some cases. An error will only be explicitly thrown when there is a missing callback or if it is some potential configuration issue to be fixed.
 
-If you would like to ensure all errors are caught, specify an `errorHandler` in your root
-client. This will catch errors in socket setup, sending of messages,
-and closing of the socket.  If you specify an errorHandler and a callback, the callback will take precedence.
+If you would like to ensure all errors are caught, specify an `errorHandler` in your root client. This will catch errors in socket setup, sending of messages, and closing of the socket. If you specify an errorHandler and a callback, the callback will take precedence.
 
 ```javascript
 // Using errorHandler
@@ -217,9 +214,10 @@ Thanks for considering making any updates to this project!  Here are the steps t
 1. Run "npm install"
 2. Add your changes in your fork as well as any new tests needed
 3. Run "npm test"
-4. Update README.md with any needed documentation
-5. If you have made any API changes, update types.d.ts
-6. Push your changes and create the PR
+4. Run "npm benchmark" and observe any anomalies
+5. Update README.md with any needed documentation
+6. If you have made any API changes, update types.d.ts
+7. Push your changes and create the PR
 
 When you've done all this we're happy to try to get this merged in right away.
 
