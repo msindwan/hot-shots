@@ -15,7 +15,7 @@ includes all changes in the latest node-statsd and many additional changes, incl
 
 hot-shots supports Node 6.x and higher.
 
-[![Build Status](https://secure.travis-ci.org/brightcove/hot-shots.png?branch=master)](http://travis-ci.org/brightcove/hot-shots)
+[![CircleCI](https://circleci.com/gh/msindwan/hot-shots.svg?style=svg)](https://circleci.com/gh/msindwan/hot-shots)
 
 ## Migrating from node-statsd
 
