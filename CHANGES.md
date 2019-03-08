@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+## 7.0.0 (2019-3-08)
+* @msindwan Add UDS support
+* @msindwan Add unit tests and switch to Jest
+* @msindwan Use es6 classes
+
 * @JamesMGreene Fix syntax in README example
 
 ## 6.1.1 (2019-1-8)
