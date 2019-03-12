@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 7.0.1 (2019-3-12)
+* @msindwan remove postinstall script
+
 ## 7.0.0 (2019-3-08)
 * @msindwan Add UDS support
 * @msindwan Add unit tests and switch to Jest
