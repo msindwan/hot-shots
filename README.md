@@ -1,4 +1,8 @@
-# hot-shots
+# hot-shots-unix
+
+This is a fork of [hot-shots](https://github.com/brightcove/hot-shots) that adds support for UDS.
+
+---
 
 A Node.js client for [Etsy](http://etsy.com)'s [StatsD](https://github.com/etsy/statsd) server, Datadog's [DogStatsD](http://docs.datadoghq.com/guides/dogstatsd/) server, and [InfluxDB's](http://influxdb.com) [Telegraf](https://github.com/influxdb/telegraf) StatsD server.
 
