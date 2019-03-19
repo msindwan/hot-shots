@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## 7.1.0 (2019-3-18)
+* @msindwan mark unix-dgram as required
+* @msindwan fix socket instantiation for unix_dgram protocol
+
 ## 7.0.1 (2019-3-12)
 * @msindwan remove postinstall script
 
