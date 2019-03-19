@@ -42,7 +42,7 @@ describe('statsd with unix_dgram protocol', () => {
     expect(client.mock).toEqual(true);
 
     client.increment('my.stat');
-    expect(client.socket.send).toHaveBeenCalledTimes(0);
+    expect(client.socket).toBeUndefined();
   });
 
   test('setting the sampling rate to 0 disables emitting stats', () => {
