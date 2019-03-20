@@ -2,12 +2,20 @@
   "name": "hot-shots-posix",
   "description": "Node.js client for StatsD, DogStatsD, and Telegraf",
   "license": "MIT",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "author": "Steve Ivy",
   "types": "./types.d.ts",
   "contributors": [
     "Russ Bradberry <rbradberry@gmail.com>",
     "Brian Deitte <bdeitte@gmail.com>"
+  ],
+  "files": [
+    "lib/",
+    "README.md",
+    "CHANGES.md",
+    "LICENSE",
+    "types.d.ts",
+    "index.js"
   ],
   "keywords": [
     "statsd",
