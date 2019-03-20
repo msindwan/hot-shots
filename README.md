@@ -1,4 +1,4 @@
-# hot-shots-unix
+# hot-shots-posix
 
 This is a fork of [hot-shots](https://github.com/brightcove/hot-shots) that adds support for UDS.
 

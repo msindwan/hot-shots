@@ -1,5 +1,5 @@
 {
-  "name": "hot-shots-unix",
+  "name": "hot-shots-posix",
   "description": "Node.js client for StatsD, DogStatsD, and Telegraf",
   "license": "MIT",
   "version": "7.1.1",
