@@ -1,0 +1,2888 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "lib/helpers.js",
+    "content": "const fs = require('fs');\n\n/**\n * Replace any characters that can't be sent on with an underscore\n * @ignore\n */\nfunction sanitizeTags(value, telegraf) {\n  const blacklist = telegraf ? /:|\\|/g : /:|\\||@|,/g;\n  // Replace reserved chars with underscores.\n  return String(value).replace(blacklist, '_');\n}\n\n/**\n * Format tags properly before sending on\n * @ignore\n */\nfunction formatTags(tags, telegraf) {\n  if (Array.isArray(tags)) {\n    return tags;\n\n  } else {\n    return Object.keys(tags).map(key => {\n      return `${sanitizeTags(key, telegraf)}:${sanitizeTags(tags[key], telegraf)}`;\n    });\n  }\n}\n\n/**\n * Overrides tags in parent with tags from child with the same name (case sensitive) and return the result as new\n * array. parent and child are not mutated.\n * @ignore\n */\nfunction overrideTags (parent, child, telegraf) {\n  const childCopy = {};\n  const toAppend = [];\n  formatTags(child, telegraf).forEach(tag => {\n    const idx = typeof tag === 'string' ? tag.indexOf(':') : -1;\n    if (idx < 1) { // Not found or first character\n      toAppend.push(tag);\n    } else {\n      childCopy[tag.substring(0, idx)] = tag.substring(idx + 1);\n    }\n  });\n  const result = parent.map(tag => {\n    const idx = typeof tag === 'string' ? tag.indexOf(':') : -1;\n    if (idx < 1) { // Not found or first character\n      return tag;\n    }\n    const key = tag.substring(0, idx);\n    if (childCopy.hasOwnProperty(key)) {\n      const value = childCopy[key];\n      delete childCopy[key];\n      return `${key}:${value}`;\n    }\n    return tag;\n  });\n  Object.keys(childCopy).forEach(key => {\n    result.push(`${key}:${childCopy[key]}`);\n  });\n  return result.concat(toAppend);\n}\n\n/**\n * Formats a date for use with DataDog\n * @ignore\n */\nfunction formatDate(date) {\n  let timestamp;\n  if (date instanceof Date) {\n    // Datadog expects seconds.\n    timestamp = Math.round(date.getTime() / 1000);\n  } else if (date instanceof Number) {\n    // Make sure it is an integer, not a float.\n    timestamp = Math.round(date);\n  }\n  return timestamp;\n}\n\n/**\n * Converts int to a string IP\n * @ignore\n */\nfunction intToIP(int) {\n  const part1 = int & 255;\n  const part2 = ((int >> 8) & 255);\n  const part3 = ((int >> 16) & 255);\n  const part4 = ((int >> 24) & 255);\n\n  return `${part4}.${part3}.${part2}.${part1}`;\n}\n\n/**\n * Returns the system default interface on Linux\n * @ignore\n */\nfunction getDefaultRoute() {\n  try {\n    const fileContents = fs.readFileSync('/proc/net/route', 'utf8'); // eslint-disable-line no-sync\n    const routes = fileContents.split('\\n');\n    for (const routeIdx in routes) {\n      const fields = routes[routeIdx].trim().split('\\t');\n      if (fields[1] === '00000000') {\n        const address = fields[2];\n        // Convert to little endian by splitting every 2 digits and reversing that list\n        const littleEndianAddress = address.match(/.{2}/g).reverse().join('');\n        return intToIP(parseInt(littleEndianAddress, 16));\n      }\n    }\n  } catch (e) {\n    console.error('Could not get default route from /proc/net/route');\n  }\n  return null;\n}\n\n/**\n * High-resolution timer\n * @ignore\n */\nfunction createHrTimer() {\n  const start = process.hrtime();\n\n  return () => {\n    const durationComponents = process.hrtime(start);\n    const seconds = durationComponents[0];\n    const nanoseconds = durationComponents[1];\n    const duration = (seconds * 1000) + (nanoseconds / 1E6);\n    return duration;\n  };\n}\n\nmodule.exports = {\n  formatTags,\n  overrideTags,\n  formatDate,\n  getDefaultRoute,\n  createHrTimer\n};\n",
+    "static": true,
+    "longname": "/home/circleci/hot-shots/lib/helpers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "sanitizeTags",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~sanitizeTags",
+    "access": "public",
+    "export": false,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": null,
+    "description": "Replace any characters that can't be sent on with an underscore",
+    "lineNumber": 7,
+    "ignore": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "telegraf",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "function",
+    "name": "intToIP",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~intToIP",
+    "access": "public",
+    "export": false,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": null,
+    "description": "Converts int to a string IP",
+    "lineNumber": 83,
+    "ignore": true,
+    "params": [
+      {
+        "name": "int",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "formatTags",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~formatTags",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": "{formatTags}",
+    "description": "Format tags properly before sending on",
+    "lineNumber": 17,
+    "ignore": true,
+    "params": [
+      {
+        "name": "tags",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "telegraf",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "overrideTags",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~overrideTags",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": "{overrideTags}",
+    "description": "Overrides tags in parent with tags from child with the same name (case sensitive) and return the result as new\narray. parent and child are not mutated.",
+    "lineNumber": 33,
+    "ignore": true,
+    "params": [
+      {
+        "name": "parent",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "child",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "telegraf",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "formatDate",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~formatDate",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": "{formatDate}",
+    "description": "Formats a date for use with DataDog",
+    "lineNumber": 67,
+    "ignore": true,
+    "params": [
+      {
+        "name": "date",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "getDefaultRoute",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~getDefaultRoute",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": "{getDefaultRoute}",
+    "description": "Returns the system default interface on Linux",
+    "lineNumber": 96,
+    "ignore": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "createHrTimer",
+    "memberof": "lib/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/helpers.js~createHrTimer",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/helpers.js",
+    "importStyle": "{createHrTimer}",
+    "description": "High-resolution timer",
+    "lineNumber": 119,
+    "ignore": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "lib/statsd.js",
+    "content": "const Transport = require('./transport');\nconst helpers = require('./helpers');\n\n/**\n * StatsD Client\n * @description The main entry-point for hot-shots.\n */\nclass StatsD extends Transport {\n\n  /**\n   * @constructor\n   * @param {object} options - The options to use for the client.\n   * @param {string} options.host - The host to send metrics to. Required for TCP and UDP protocols.\n   * @param {number} options.port - The port that StatsD is listening on. Required for TCP and UDP protocols.\n   * @param {string} options.path - The UDS path to connect to. Required for UNIX_DGRAM protocol.\n   * @param {string} options.prefix - Global prefix string to append to all stats. Optional\n   * @param {string} options.suffix - Global suffix string to append to all stats. Optional\n   * @param {boolean} options.globalize - Assigns the client to a global instance. Optional\n   * @param {boolean} options.cacheDns - Whether or not to cache the DNS for subsequent requests. Optional\n   * @param {boolean} options.mock - Whether or not to mock the client. Optional\n   * @param {string[]|object} options.globalTags - Tags to include for every metroc. Optional\n   * @param {number} options.maxBufferSize - The maximum size of the in-memory buffer. Optional\n   * @param {number} options.bufferFlushInterval - How often the buffer is sent to StatsD. Optional\n   * @param {boolean} options.telegraf - Flag to indicate telegraf support. Optional\n   * @param {number} option.sampleRate - The sample rate to use fo stats. Optional\n   * @param {string} options.protocol - The protocol to use for sending stats. Optional\n   */\n  constructor(...args) {\n    super(...args);\n  }\n\n  /**\n   * Represents the timing stat\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} time - The time in milliseconds to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  timing(stat, time, sampleRate, tags, callback) {\n    this.sendAll(stat, time, 'ms', sampleRate, tags, callback);\n  }\n\n  /**\n   * Represents the timing stat by recording the duration a function takes to run (in milliseconds)\n   * @param {function} func - The function to run\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  timer(func, stat, sampleRate, tags, callback) {\n    return (...args) => {\n      const start = process.hrtime();\n      try {\n        return func(...args);\n      } finally {\n        // get duration in milliseconds\n        const durationComponents = process.hrtime(start);\n        const seconds = durationComponents[0];\n        const nanoseconds = durationComponents[1];\n        const duration = (seconds * 1000) + (nanoseconds / 1E6);\n\n        this.timing(\n          stat,\n          duration,\n          sampleRate,\n          tags,\n          callback\n        );\n      }\n    };\n  }\n\n  /**\n   * Decorates an async function with timing recording behaviour.\n   *\n   * This version of `timer` will record the time take for the asyncronus action returned by `func`\n   * not just the execution time of `func` itself.\n   *\n   * @param {function} func The function to run\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  asyncTimer(func, stat, sampleRate, tags, callback) {\n    return (...args) => {\n      const end = helpers.createHrTimer();\n      const p = func(...args);\n      const recordStat = () => { this.timing(stat, end(), sampleRate, tags, callback); };\n      p.then(recordStat, recordStat);\n      return p;\n    };\n  }\n\n  /**\n   * Increments a stat by a specified amount\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  increment(stat, value, sampleRate, tags, callback) {\n    // allow use of tags without explicit value or sampleRate\n    if (arguments.length < 3) {\n      if (typeof value !== 'number') {\n        tags = value;\n        value = undefined;\n      }\n    }\n\n    // we explicitly check for undefined and null (and don't do a \"! value\" check)\n    // so that 0 values are allowed and sent through as-is\n    if (value === undefined || value === null) {\n      value = 1;\n    }\n    this.sendAll(stat, value, 'c', sampleRate, tags, callback);\n  }\n\n  /**\n   * Decrements a stat by a specified amount\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  decrement(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, -value || -1, 'c', sampleRate, tags, callback);\n  }\n\n  /**\n   * Represents the histogram stat\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  histogram(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, value, 'h', sampleRate, tags, callback);\n  }\n\n  /**\n   * Represents the distribution stat\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  distribution(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, value, 'd', sampleRate, tags, callback);\n  }\n\n  /**\n   * Gauges a stat by a specified amount\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  gauge(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, value, 'g', sampleRate, tags, callback);\n  }\n\n  /**\n   * Counts unique values by a specified amount\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  unique(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, value, 's', sampleRate, tags, callback);\n  }\n\n  /**\n   * Counts unique values by a specified amount\n   * @param {string|string[]} stat - The stat(s) to send\n   * @param {number} value - The value to send\n   * @param {number} sampleRate - The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags - The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  set(stat, value, sampleRate, tags, callback) {\n    this.sendAll(stat, value, 's', sampleRate, tags, callback);\n  }\n\n  /**\n   * Send a service check\n   * @param {string} name - The name of the service check\n   * @param {number} status - The status of the service check (0 to 3).\n   * @param {object} options - Additional options\n   * @param {Date} options.date_happened - Assign a timestamp to the event. Default is now.\n   * @param {string} options.hostname - Assign a hostname to the check.\n   * @param {string} options.message - Assign a message to the check.\n   * @param {string[]|object} tags - The Array of tags to add to the check. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  check(name, status, options, tags, callback) {\n    if (this.telegraf) {\n      const err = new Error('Not supported by Telegraf / InfluxDB');\n      if (callback) {\n        return callback(err);\n      } else if (this.errorHandler) {\n        return this.errorHandler(err);\n      }\n\n      throw err;\n    }\n\n    const check = ['_sc', this.prefix + name + this.suffix, status], metadata = options || {};\n\n    if (metadata.date_happened) {\n      const timestamp = helpers.formatDate(metadata.date_happened);\n      if (timestamp) {\n        check.push(`d:${timestamp}`);\n      }\n    }\n    if (metadata.hostname) {\n      check.push(`h:${metadata.hostname}`);\n    }\n\n    let mergedTags = this.globalTags;\n    if (tags && typeof(tags) === 'object') {\n      mergedTags = helpers.overrideTags(mergedTags, tags, this.telegraf);\n    }\n    if (mergedTags.length > 0) {\n      check.push(`#${mergedTags.join(',')}`);\n    }\n\n    // message has to be the last part of a service check\n    if (metadata.message) {\n      check.push(`m:${metadata.message}`);\n    }\n\n    // allow for tags to be omitted and callback to be used in its place\n    if (typeof tags === 'function' && callback === undefined) {\n      callback = tags;\n    }\n\n    const message = check.join('|');\n    // Service checks are unique in that message has to be the last element in\n    // the stat if provided, so we can't append tags like other checks. This\n    // directly calls the `_send` method to avoid appending tags, since we've\n    // already added them.\n    this._send(message, callback);\n  }\n\n  /**\n   * Send on an event\n   * @param {string} title - The title of the event\n   * @param {string} text - The description of the event.  Optional- title is used if not given.\n   * @param {object} options - Additional options\n   * @param {Date} options.date_happened - Assign a timestamp to the event. Default is now.\n   * @param {string} options.hostname - Assign a hostname to the event.\n   * @param {string} options.aggregation_key - Assign an aggregation key to the event, to group it with some others.\n   * @param {string} options.priority - Can be ‘normal’ or ‘low’. Default is 'normal'.\n   * @param {string} options.source_type_name - Assign a source type to the event.\n   * @param {string} options.alert_type - Can be ‘error’, ‘warning’, ‘info’ or ‘success’. Default is 'info'.\n   * @param {string[]|object} tags - options.tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback - Callback when message is done being delivered. Optional.\n   */\n  event(title, text, options, tags, callback) {\n    if (this.telegraf) {\n      const err = new Error('Not supported by Telegraf / InfluxDB');\n      if (callback) {\n        return callback(err);\n      }\n      else if (this.errorHandler) {\n        return this.errorHandler(err);\n      }\n\n      throw err;\n    }\n\n    // Convert to strings\n    let message;\n\n    const msgTitle = String(title ? title : '');\n    let msgText = String(text ? text : msgTitle);\n    // Escape new lines (unescaping is supported by DataDog)\n    msgText = msgText.replace(/\\n/g, '\\\\n');\n\n    // start out the message with the event-specific title and text info\n    message = `_e{${msgTitle.length},${msgText.length}}:${msgTitle}|${msgText}`;\n\n    // add in the event-specific options\n    if (options) {\n      if (options.date_happened) {\n        const timestamp = helpers.formatDate(options.date_happened);\n        if (timestamp) {\n          message += `|d:${timestamp}`;\n        }\n      }\n      if (options.hostname) {\n        message += `|h:${options.hostname}`;\n      }\n      if (options.aggregation_key) {\n        message += `|k:${options.aggregation_key}`;\n      }\n      if (options.priority) {\n        message += `|p:${options.priority}`;\n      }\n      if (options.source_type_name) {\n        message += `|s:${options.source_type_name}`;\n      }\n      if (options.alert_type) {\n        message += `|t:${options.alert_type}`;\n      }\n    }\n\n    // allow for tags to be omitted and callback to be used in its place\n    if (typeof tags === 'function' && callback === undefined) {\n      callback = tags;\n    }\n\n    this.send(message, tags, callback);\n  }\n\n  /**\n   * Creates a child client that adds prefix, suffix and/or tags to this client. Child client can itself have children.\n   * @param {object} options\n   * @param {string} options.prefix - An optional prefix to assign to each stat name sent\n   * @param {string} options.suffix - An optional suffix to assign to each stat name sent\n   * @param {string[]|object} options.globalTags - Optional tags that will be added to every metric\n   */\n  childClient(options) {\n    return new StatsD({\n      isChild     : true,\n      socket      : this.socket, // Child inherits socket from parent. Parent itself can be a child.\n      // All children and parent share the same buffer via sharing an object (cannot mutate strings)\n      bufferHolder: this.bufferHolder,\n      dnsError    : this.dnsError, // Child inherits an error from parent (if it is there)\n      errorHandler: options.errorHandler || this.errorHandler, // Handler for callback errors\n      host        : this.host,\n      port        : this.port,\n      prefix      : (options.prefix || '') + this.prefix, // Child has its prefix prepended to parent's prefix\n      suffix      : this.suffix + (options.suffix || ''), // Child has its suffix appended to parent's suffix\n      globalize   : false, // Only 'root' client can be global\n      mock        : this.mock,\n      // Append child's tags to parent's tags\n      globalTags  : typeof options.globalTags === 'object' ?\n          helpers.overrideTags(this.globalTags, options.globalTags, this.telegraf) : this.globalTags,\n      maxBufferSize : this.maxBufferSize,\n      bufferFlushInterval: this.bufferFlushInterval,\n      telegraf    : this.telegraf,\n      protocol    : this.protocol\n    });\n  }\n}\n\nmodule.exports = StatsD;\n",
+    "static": true,
+    "longname": "/home/circleci/hot-shots/lib/statsd.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "class",
+    "name": "StatsD",
+    "memberof": "lib/statsd.js",
+    "static": true,
+    "longname": "lib/statsd.js~StatsD",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/statsd.js",
+    "importStyle": "StatsD",
+    "description": "StatsD Client",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@description",
+        "tagValue": "The main entry-point for hot-shots."
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "lib/transport.js~Transport"
+    ]
+  },
+  {
+    "__docId__": 58,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 28,
+    "unknown": [
+      {
+        "tagName": "@constructor",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "The options to use for the client."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.host",
+        "description": "The host to send metrics to. Required for TCP and UDP protocols."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.port",
+        "description": "The port that StatsD is listening on. Required for TCP and UDP protocols."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.path",
+        "description": "The UDS path to connect to. Required for UNIX_DGRAM protocol."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.prefix",
+        "description": "Global prefix string to append to all stats. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.suffix",
+        "description": "Global suffix string to append to all stats. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.globalize",
+        "description": "Assigns the client to a global instance. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.cacheDns",
+        "description": "Whether or not to cache the DNS for subsequent requests. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.mock",
+        "description": "Whether or not to mock the client. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.globalTags",
+        "description": "Tags to include for every metroc. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.maxBufferSize",
+        "description": "The maximum size of the in-memory buffer. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.bufferFlushInterval",
+        "description": "How often the buffer is sent to StatsD. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.telegraf",
+        "description": "Flag to indicate telegraf support. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "option.sampleRate",
+        "description": "The sample rate to use fo stats. Optional"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.protocol",
+        "description": "The protocol to use for sending stats. Optional"
+      }
+    ]
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "name": "timing",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#timing",
+    "access": "public",
+    "description": "Represents the timing stat",
+    "lineNumber": 40,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "time",
+        "description": "The time in milliseconds to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "timer",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#timer",
+    "access": "public",
+    "description": "Represents the timing stat by recording the duration a function takes to run (in milliseconds)",
+    "lineNumber": 52,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "The function to run"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "asyncTimer",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#asyncTimer",
+    "access": "public",
+    "description": "Decorates an async function with timing recording behaviour.\n\nThis version of `timer` will record the time take for the asyncronus action returned by `func`\nnot just the execution time of `func` itself.",
+    "lineNumber": 87,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "The function to run"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "increment",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#increment",
+    "access": "public",
+    "description": "Increments a stat by a specified amount",
+    "lineNumber": 105,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "decrement",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#decrement",
+    "access": "public",
+    "description": "Decrements a stat by a specified amount",
+    "lineNumber": 130,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "histogram",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#histogram",
+    "access": "public",
+    "description": "Represents the histogram stat",
+    "lineNumber": 142,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "distribution",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#distribution",
+    "access": "public",
+    "description": "Represents the distribution stat",
+    "lineNumber": 154,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "gauge",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#gauge",
+    "access": "public",
+    "description": "Gauges a stat by a specified amount",
+    "lineNumber": 166,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "unique",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#unique",
+    "access": "public",
+    "description": "Counts unique values by a specified amount",
+    "lineNumber": 178,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "set",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#set",
+    "access": "public",
+    "description": "Counts unique values by a specified amount",
+    "lineNumber": 190,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "check",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#check",
+    "access": "public",
+    "description": "Send a service check",
+    "lineNumber": 205,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "The name of the service check"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "status",
+        "description": "The status of the service check (0 to 3)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Additional options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Date"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.date_happened",
+        "description": "Assign a timestamp to the event. Default is now."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.hostname",
+        "description": "Assign a hostname to the check."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.message",
+        "description": "Assign a message to the check."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to the check. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "event",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#event",
+    "access": "public",
+    "description": "Send on an event",
+    "lineNumber": 269,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "title",
+        "description": "The title of the event"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "The description of the event.  Optional- title is used if not given."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Additional options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Date"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.date_happened",
+        "description": "Assign a timestamp to the event. Default is now."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.hostname",
+        "description": "Assign a hostname to the event."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.aggregation_key",
+        "description": "Assign an aggregation key to the event, to group it with some others."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.priority",
+        "description": "Can be ‘normal’ or ‘low’. Default is 'normal'."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.source_type_name",
+        "description": "Assign a source type to the event."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.alert_type",
+        "description": "Can be ‘error’, ‘warning’, ‘info’ or ‘success’. Default is 'info'."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "options.tags The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "childClient",
+    "memberof": "lib/statsd.js~StatsD",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/statsd.js~StatsD#childClient",
+    "access": "public",
+    "description": "Creates a child client that adds prefix, suffix and/or tags to this client. Child client can itself have children.",
+    "lineNumber": 333,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.prefix",
+        "description": "An optional prefix to assign to each stat name sent"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.suffix",
+        "description": "An optional suffix to assign to each stat name sent"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.globalTags",
+        "description": "Optional tags that will be added to every metric"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "file",
+    "name": "lib/transport.js",
+    "content": "const unixDgram = require('unix-dgram');\nconst helpers = require('./helpers');\nconst dgram = require('dgram');\nconst dns = require('dns');\nconst net = require('net');\n\n/**\n * @description Creates a socket with the arguments provided\n * @param {object} args\n * @param {string} args.host - The host to use for the socket\n * @param {number} args.port - The port to use for the socket\n * @param {number} args.path - The UDS path to use for the socket\n * @param {number} args.protocol - The protocol to use\n * @ignore\n * @throws Error if it fails to create the socket\n */\nfunction createSocket(args) {\n  let socket;\n\n  if (args.protocol === 'tcp') {\n    socket = net.connect(args.port, args.host);\n    socket.setKeepAlive(true);\n  } else if (args.protocol === 'unix_dgram') {\n    socket = unixDgram.createSocket('unix_dgram');\n    socket.connect(args.path);\n  } else {\n    socket = dgram.createSocket('udp4');\n  }\n\n  return socket;\n}\n\n/**\n * StatsD Transport\n * @description Base class for transporting StatsD Messages\n * @throws Error if it fails to create the socket\n * @ignore\n * NOTE: Adding new parameters to the constructor is deprecated- please use the\n * constructor as one options object.\n */\nclass Transport {\n  constructor(\n    host,\n    port,\n    prefix,\n    suffix,\n    globalize,\n    cacheDns,\n    mock,\n    globalTags,\n    maxBufferSize,\n    bufferFlushInterval,\n    telegraf,\n    sampleRate,\n    protocol\n  ) {\n    let options = host || {};\n    const self = this;\n\n    // Adding options below is DEPRECATED.  Use the options object instead.\n    if (arguments.length > 1 || typeof(host) === 'string') {\n      options = {\n        host        : host,\n        port        : port,\n        prefix      : prefix,\n        suffix      : suffix,\n        globalize   : globalize,\n        cacheDns    : cacheDns,\n        mock        : mock === true,\n        globalTags  : globalTags,\n        maxBufferSize : maxBufferSize,\n        bufferFlushInterval: bufferFlushInterval,\n        telegraf    : telegraf,\n        sampleRate  : sampleRate,\n        protocol    : protocol\n      };\n    }\n\n    // hidden global_tags option for backwards compatibility\n    options.globalTags = options.globalTags || options.global_tags;\n\n    this.protocol    = (options.protocol && options.protocol.toLowerCase());\n    this.host        = options.host || 'localhost';\n    this.port        = options.port || 8125;\n    this.path        = options.path || '';\n    this.prefix      = options.prefix || '';\n    this.suffix      = options.suffix || '';\n    this.mock        = options.mock === true;\n    this.globalTags  = typeof options.globalTags === 'object' ?\n        helpers.formatTags(options.globalTags, options.telegraf) : [];\n    this.telegraf    = options.telegraf || false;\n    this.maxBufferSize = options.maxBufferSize || 0;\n    this.sampleRate  = typeof options.sampleRate === 'number' ? options.sampleRate : 1;\n    this.bufferFlushInterval = options.bufferFlushInterval || 1000;\n    this.bufferHolder = options.isChild ? options.bufferHolder : { buffer: '' };\n    this.errorHandler = options.errorHandler;\n\n    // If we're mocking the client, create a buffer to record the outgoing calls.\n    if (this.mock) {\n      this.mockBuffer = [];\n    } else {\n      this.socket = options.isChild ? options.socket : createSocket({\n        host: this.host,\n        path: this.path,\n        port: this.port,\n        protocol: this.protocol\n      });\n\n      if (!options.isChild && options.errorHandler) {\n        this.socket.on('error', options.errorHandler);\n      }\n    }\n\n    // We only want a single flush event per parent and all its child clients\n    if (!options.isChild && this.maxBufferSize > 0) {\n      this.intervalHandle = setInterval(this.onBufferFlushInterval.bind(this), this.bufferFlushInterval);\n    }\n\n    if (options.isChild) {\n      if (options.dnsError) {\n        this.dnsError = options.dnsError;\n      }\n    } else if (options.cacheDns === true) {\n      dns.lookup(options.host, (err, address) => {\n        if (err === null) {\n          self.host = address;\n        } else {\n          self.dnsError = err;\n        }\n      });\n    }\n\n    if (options.globalize) {\n      global.statsd = this;\n    }\n\n    if (options.useDefaultRoute) {\n      const defaultRoute = helpers.getDefaultRoute();\n      if (defaultRoute) {\n        this.host = defaultRoute;\n      }\n    }\n\n    this.messagesInFlight = 0;\n    this.CHECKS = {\n      OK: 0,\n      WARNING: 1,\n      CRITICAL: 2,\n      UNKNOWN: 3,\n    };\n  }\n\n  /**\n   * Checks if stats is an array and sends all stats calling back once all have sent\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendAll(stat, value, type, sampleRate, tags, callback) {\n    let completed = 0;\n    let calledback = false;\n    let sentBytes = 0;\n    const self = this;\n\n    if (sampleRate && typeof sampleRate !== 'number') {\n      callback = tags;\n      tags = sampleRate;\n      sampleRate = undefined;\n    }\n\n    if (tags && typeof tags !== 'object') {\n      callback = tags;\n      tags = undefined;\n    }\n\n    /**\n     * Gets called once for each callback, when all callbacks return we will\n     * call back from the function\n     * @private\n     */\n    function onSend(error, bytes) {\n      completed += 1;\n      if (calledback) {\n        return;\n      }\n\n      if (error) {\n        if (typeof callback === 'function') {\n          calledback = true;\n          callback(error);\n        } else if (self.errorHandler) {\n          calledback = true;\n          self.errorHandler(error);\n        }\n        return;\n      }\n\n      if (bytes) {\n        sentBytes += bytes;\n      }\n\n      if (completed === stat.length && typeof callback === 'function') {\n        callback(null, sentBytes);\n      }\n    }\n\n    if (Array.isArray(stat)) {\n      stat.forEach(item => {\n        self.sendStat(item, value, type, sampleRate, tags, onSend);\n      });\n    } else {\n      this.sendStat(stat, value, type, sampleRate, tags, callback);\n    }\n  }\n\n  /**\n   * Sends a stat across the wire\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendStat(stat, value, type, sampleRate, tags, callback) {\n    let message = `${this.prefix + stat + this.suffix}:${value}|${type}`;\n    sampleRate = typeof sampleRate === 'number' ? sampleRate : this.sampleRate;\n    if (sampleRate < 1) {\n      if (Math.random() < sampleRate) {\n        message += `|@${sampleRate}`;\n      } else {\n        // don't want to send if we don't meet the sample ratio\n        return callback ? callback() : undefined;\n      }\n    }\n    this.send(message, tags, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {string[]|object} tags {Array} The tags to include (along with global tags). Optional.\n   * @param callback {Function=} Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  send(message, tags, callback) {\n    let mergedTags = this.globalTags;\n    if (tags && typeof tags === 'object') {\n      mergedTags = helpers.overrideTags(mergedTags, tags, this.telegraf);\n    }\n    if (mergedTags.length > 0) {\n      if (this.telegraf) {\n        message = message.split(':');\n        message = `${message[0]},${mergedTags.join(',').replace(/:/g, '=')}:${message.slice(1).join(':')}`;\n      } else {\n        message += `|#${mergedTags.join(',')}`;\n      }\n    }\n\n    this._send(message, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  _send(message, callback) {\n    // we may have a cached error rather than a cached lookup, so\n    // throw it on\n    if (this.dnsError) {\n      if (callback) {\n        return callback(this.dnsError);\n      } else if (this.errorHandler) {\n        return this.errorHandler(this.dnsError);\n      }\n      throw this.dnsError;\n    }\n\n    // Only send this stat if we're not a mock Client.\n    if (!this.mock) {\n      if (this.maxBufferSize === 0) {\n        this.sendMessage(message, callback);\n      } else {\n        this.enqueue(message, callback);\n      }\n    } else {\n      this.mockBuffer.push(message);\n      if (typeof callback === 'function') {\n        callback(null, 0);\n      }\n    }\n  }\n\n  /**\n   * Add the message to the buffer and flush the buffer if needed\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback\n   */\n  enqueue(message, callback) {\n    message += '\\n';\n\n    if (this.bufferHolder.buffer.length + message.length > this.maxBufferSize) {\n      this.flushQueue(callback);\n      this.bufferHolder.buffer += message;\n    }\n    else {\n      this.bufferHolder.buffer += message;\n      if (callback) {\n        callback(null);\n      }\n    }\n  }\n\n  /**\n   * Flush the buffer, sending on the messages\n   */\n  flushQueue(callback) {\n    this.sendMessage(this.bufferHolder.buffer, callback);\n    this.bufferHolder.buffer = '';\n  }\n\n  /**\n   * Send on the message through the socket\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendMessage(message, callback) {\n    // don't waste the time if we aren't sending anything\n    if (message === '' || this.mock) {\n      if (callback) {\n        callback(null);\n      }\n      return;\n    }\n\n    if (this.protocol === 'tcp' && message.lastIndexOf('\\n') !== message.length - 1) {\n      message += '\\n';\n    }\n\n    const handleCallback = (err) => {\n      this.messagesInFlight--;\n      const errFormatted = err ? new Error(`Error sending hot-shots message: ${err}`) : null;\n      if (errFormatted) {\n        errFormatted.code = err.code;\n      }\n      if (callback) {\n        callback(errFormatted);\n      } else if (errFormatted) {\n        if (this.errorHandler) {\n          this.errorHandler(errFormatted);\n        } else {\n          // emit error ourselves on the socket for backwards compatibility\n          this.socket.emit('error', errFormatted);\n        }\n      }\n    };\n\n    const buf = Buffer.from(message);\n    try {\n      this.messagesInFlight++;\n      if (this.protocol === 'tcp') {\n        this.socket.write(buf, 'ascii', handleCallback);\n      } else if (this.protocol === 'unix_dgram') {\n        this.socket.send(buf, handleCallback);\n      } else {\n        this.socket.send(buf, 0, buf.length, this.port, this.host, handleCallback);\n      }\n    } catch (err) {\n      handleCallback(err);\n    }\n  }\n\n  /**\n   * Called every bufferFlushInterval to flush any buffer that is around\n   */\n  onBufferFlushInterval() {\n    this.flushQueue();\n  }\n\n  /**\n   * Close the underlying socket and stop listening for data on it.\n   */\n  close(callback) {\n    // stop trying to flush the queue on an interval\n    if (this.intervalHandle) {\n      clearInterval(this.intervalHandle);\n    }\n\n    // flush the queue one last time, if needed\n    this.flushQueue((err) => {\n      if (err) {\n        if (callback) {\n          callback(err);\n        }\n        return;\n      }\n\n      // FIXME: we have entered callback hell, and this whole file is in need of an async rework\n\n      // wait until there are no more messages in flight before really closing the socket\n      let intervalAttempts = 0;\n      const waitForMessages = setInterval(() => {\n        intervalAttempts++;\n        if (intervalAttempts > 10) {\n          this.messagesInFlight = 0;\n        }\n        if (this.messagesInFlight <= 0) {\n          clearInterval(waitForMessages);\n          this._close(callback);\n        }\n      }, 50);\n    });\n  }\n\n  /**\n   * Really close the socket and handle any errors related to it\n   */\n  _close(callback) {\n    // error function to use in callback and catch below\n    let handledError = false;\n    const handleErr = (err) => {\n      const errMessage = `Error closing hot-shots socket: ${err}`;\n      if (!handledError) {\n        // The combination of catch and error can lead to some errors\n        // showing up twice.  So we just show one of the errors that occur\n        // on close.\n        handledError = true;\n\n        if (callback) {\n          callback(new Error(errMessage));\n        } else if (this.errorHandler) {\n          this.errorHandler(new Error(errMessage));\n        }\n      }\n    };\n\n    if (!this.mock) {\n      if (this.errorHandler) {\n        this.socket.removeListener('error', this.errorHandler);\n      }\n\n      // handle error and close events\n      this.socket.on('error', handleErr);\n      if (callback) {\n        this.socket.on('close', err => {\n          if (! handledError && callback) {\n            callback(err);\n          }\n        });\n      }\n\n      try {\n        if (this.protocol === 'tcp') {\n          this.socket.destroy();\n        } else {\n          this.socket.close();\n        }\n      } catch (err) {\n        handleErr(err);\n      }\n    } else if (callback) {\n      return callback(null);\n    }\n  }\n}\n\nmodule.exports = Transport;\n",
+    "static": true,
+    "longname": "/home/circleci/hot-shots/lib/transport.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "createSocket",
+    "memberof": "lib/transport.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/transport.js~createSocket",
+    "access": "public",
+    "export": false,
+    "importPath": "hot-shots-posix/lib/transport.js",
+    "importStyle": null,
+    "description": "",
+    "lineNumber": 17,
+    "ignore": true,
+    "unknown": [
+      {
+        "tagName": "@description",
+        "tagValue": "Creates a socket with the arguments provided"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args.host",
+        "description": "The host to use for the socket"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args.port",
+        "description": "The port to use for the socket"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args.path",
+        "description": "The UDS path to use for the socket"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args.protocol",
+        "description": "The protocol to use"
+      }
+    ],
+    "throws": [
+      {
+        "types": [
+          "*"
+        ],
+        "description": "Error if it fails to create the socket"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "class",
+    "name": "Transport",
+    "memberof": "lib/transport.js",
+    "static": true,
+    "longname": "lib/transport.js~Transport",
+    "access": "public",
+    "export": true,
+    "importPath": "hot-shots-posix/lib/transport.js",
+    "importStyle": "Transport",
+    "description": "StatsD Transport",
+    "lineNumber": 41,
+    "ignore": true,
+    "unknown": [
+      {
+        "tagName": "@description",
+        "tagValue": "Base class for transporting StatsD Messages"
+      }
+    ],
+    "throws": [
+      {
+        "types": [
+          "*"
+        ],
+        "description": "Error if it fails to create the socket"
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 75,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "member",
+    "name": "protocol",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#protocol",
+    "access": "public",
+    "description": null,
+    "lineNumber": 82,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "member",
+    "name": "host",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#host",
+    "access": "public",
+    "description": null,
+    "lineNumber": 83,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "member",
+    "name": "port",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#port",
+    "access": "public",
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "name": "path",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#path",
+    "access": "public",
+    "description": null,
+    "lineNumber": 85,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "prefix",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#prefix",
+    "access": "public",
+    "description": null,
+    "lineNumber": 86,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "member",
+    "name": "suffix",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#suffix",
+    "access": "public",
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "name": "mock",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#mock",
+    "access": "public",
+    "description": null,
+    "lineNumber": 88,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "name": "globalTags",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#globalTags",
+    "access": "public",
+    "description": null,
+    "lineNumber": 89,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "member",
+    "name": "telegraf",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#telegraf",
+    "access": "public",
+    "description": null,
+    "lineNumber": 91,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "member",
+    "name": "maxBufferSize",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#maxBufferSize",
+    "access": "public",
+    "description": null,
+    "lineNumber": 92,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 86,
+    "kind": "member",
+    "name": "sampleRate",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#sampleRate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 93,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "member",
+    "name": "bufferFlushInterval",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#bufferFlushInterval",
+    "access": "public",
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "member",
+    "name": "bufferHolder",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#bufferHolder",
+    "access": "public",
+    "description": null,
+    "lineNumber": 95,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "name": "errorHandler",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#errorHandler",
+    "access": "public",
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "member",
+    "name": "mockBuffer",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#mockBuffer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 100,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "member",
+    "name": "socket",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#socket",
+    "access": "public",
+    "description": null,
+    "lineNumber": 102,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "intervalHandle",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#intervalHandle",
+    "access": "public",
+    "description": null,
+    "lineNumber": 116,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "dnsError",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#dnsError",
+    "access": "public",
+    "description": null,
+    "lineNumber": 121,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "member",
+    "name": "messagesInFlight",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#messagesInFlight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 144,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "name": "CHECKS",
+    "memberof": "lib/transport.js~Transport",
+    "static": false,
+    "longname": "lib/transport.js~Transport#CHECKS",
+    "access": "public",
+    "description": null,
+    "lineNumber": 145,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"OK\": *, \"WARNING\": number, \"CRITICAL\": number, \"UNKNOWN\": number}"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "method",
+    "name": "sendAll",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#sendAll",
+    "access": "public",
+    "description": "Checks if stats is an array and sends all stats calling back once all have sent",
+    "lineNumber": 162,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "{String|Array} The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The type of the metric"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 98,
+    "kind": "method",
+    "name": "sendStat",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#sendStat",
+    "access": "public",
+    "description": "Sends a stat across the wire",
+    "lineNumber": 228,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "{String|Array} The stat(s) to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to send"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The type of the metric"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sampleRate",
+        "description": "The Number of times to sample (0 to 1). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "The Array of tags to add to metrics. Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "send",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#send",
+    "access": "public",
+    "description": "Send a stat or event across the wire",
+    "lineNumber": 248,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The constructed message without tags"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tags",
+        "description": "{Array} The tags to include (along with global tags). Optional."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "{Function=} Callback when message is done being delivered (only if maxBufferSize == 0). Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 100,
+    "kind": "method",
+    "name": "_send",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#_send",
+    "access": "private",
+    "description": "Send a stat or event across the wire",
+    "lineNumber": 270,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The constructed message without tags"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered (only if maxBufferSize == 0). Optional."
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "method",
+    "name": "enqueue",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#enqueue",
+    "access": "public",
+    "description": "Add the message to the buffer and flush the buffer if needed",
+    "lineNumber": 303,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The constructed message without tags"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 102,
+    "kind": "method",
+    "name": "flushQueue",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#flushQueue",
+    "access": "public",
+    "description": "Flush the buffer, sending on the messages",
+    "lineNumber": 321,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 103,
+    "kind": "method",
+    "name": "sendMessage",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#sendMessage",
+    "access": "public",
+    "description": "Send on the message through the socket",
+    "lineNumber": 332,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The constructed message without tags"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "Callback when message is done being delivered. Optional."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "name": "onBufferFlushInterval",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#onBufferFlushInterval",
+    "access": "public",
+    "description": "Called every bufferFlushInterval to flush any buffer that is around",
+    "lineNumber": 381,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "name": "close",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#close",
+    "access": "public",
+    "description": "Close the underlying socket and stop listening for data on it.",
+    "lineNumber": 388,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "name": "_close",
+    "memberof": "lib/transport.js~Transport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/transport.js~Transport#_close",
+    "access": "private",
+    "description": "Really close the socket and handle any errors related to it",
+    "lineNumber": 423,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# hot-shots-posix\n\nA StatsD client forked from https://github.com/brightcove/hot-shots with additional support for POSIX-compliant systems.\n\n[![CircleCI](https://circleci.com/gh/msindwan/hot-shots-posix.svg?style=svg)](https://circleci.com/gh/msindwan/hot-shots) [![npm version](https://badge.fury.io/js/hot-shots-posix.svg)](https://badge.fury.io/js/hot-shots-posix)\n\n[API Documentation and usage](https://msindwan.github.io/hot-shots-posix/docs)\n\n## Quick Start\n\n```js\nconst StatsD = require('hot-shots-posix');\n\n// Create the client\nconst client = new StatsD({\n  path: '/path/to/uds',\n  protocol: 'unix_dgram',\n  errorHandler: (err) => {\n    console.error(err);\n  }\n});\n\n// Start emitting metrics.\nclient.incremment('my.stat');\nclient.decrement('my.stat');\n```\n\n## Requirements\n\n* Node.js >= 6.0.0\n\n## Development\n\nTo bootstrap your development environment:\n\n1. Clone hot-shots-posix\n2. Run `npm install`\n\n## Tests\n\n- `npm run test` - runs all tests\n- `npm run test-unit` - runs unit tests\n- `npm run test-integration` - runs integration tests\n- `npm run lint` - runs linter\n\n## License\n\nhot-shots-posix is licensed under the MIT license.\n",
+    "longname": "/home/circleci/hot-shots/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"hot-shots-posix\",\n  \"description\": \"Node.js client for StatsD, DogStatsD, and Telegraf\",\n  \"license\": \"MIT\",\n  \"version\": \"7.1.4\",\n  \"author\": \"Steve Ivy\",\n  \"types\": \"./types.d.ts\",\n  \"contributors\": [\n    \"Russ Bradberry <rbradberry@gmail.com>\",\n    \"Brian Deitte <bdeitte@gmail.com>\"\n  ],\n  \"files\": [\n    \"lib/\",\n    \"README.md\",\n    \"CHANGELOG.md\",\n    \"LICENSE\",\n    \"types.d.ts\",\n    \"index.js\"\n  ],\n  \"keywords\": [\n    \"statsd\",\n    \"dogstatsd\",\n    \"datadog\",\n    \"metrics\",\n    \"telegraf\"\n  ],\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git://github.com/msindwan/hot-shots-posix.git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/msindwan/hot-shots/issues\"\n  },\n  \"directories\": {\n    \"lib\": \"./lib/\"\n  },\n  \"engines\": {\n    \"node\": \">=6.0.0\"\n  },\n  \"scripts\": {\n    \"test\": \"npm run test-unit && npm run test-integration\",\n    \"test-integration\": \"jest --colors --collectCoverage tests/integration/\",\n    \"test-unit\": \"jest --colors --collectCoverage tests/unit/\",\n    \"lint\": \"eslint lib/**/*.js tests/**/*.js\",\n    \"pretest\": \"npm run lint\",\n    \"benchmark\": \"node benchmark/statsd.js\",\n    \"gen-docs\": \"esdoc\"\n  },\n  \"devDependencies\": {\n    \"benchmark\": \"^2.1.4\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"5.9.x\",\n    \"husky\": \"^1.3.1\",\n    \"jest\": \"^24.3.1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run test\"\n    }\n  },\n  \"dependencies\": {\n    \"unix-dgram\": \"^2.0.2\"\n  }\n}\n",
+    "longname": "/home/circleci/hot-shots/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

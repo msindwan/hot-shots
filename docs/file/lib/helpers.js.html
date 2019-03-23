@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/helpers.js | hot-shots-posix</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Node.js client for StatsD, DogStatsD, and Telegraf"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="hot-shots-posix"><meta property="twitter:description" content="Node.js client for StatsD, DogStatsD, and Telegraf"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/statsd.js~StatsD.html">StatsD</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/helpers.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const fs = require(&apos;fs&apos;);
+
+/**
+ * Replace any characters that can&apos;t be sent on with an underscore
+ * @ignore
+ */
+function sanitizeTags(value, telegraf) {
+  const blacklist = telegraf ? /:|\|/g : /:|\||@|,/g;
+  // Replace reserved chars with underscores.
+  return String(value).replace(blacklist, &apos;_&apos;);
+}
+
+/**
+ * Format tags properly before sending on
+ * @ignore
+ */
+function formatTags(tags, telegraf) {
+  if (Array.isArray(tags)) {
+    return tags;
+
+  } else {
+    return Object.keys(tags).map(key =&gt; {
+      return `${sanitizeTags(key, telegraf)}:${sanitizeTags(tags[key], telegraf)}`;
+    });
+  }
+}
+
+/**
+ * Overrides tags in parent with tags from child with the same name (case sensitive) and return the result as new
+ * array. parent and child are not mutated.
+ * @ignore
+ */
+function overrideTags (parent, child, telegraf) {
+  const childCopy = {};
+  const toAppend = [];
+  formatTags(child, telegraf).forEach(tag =&gt; {
+    const idx = typeof tag === &apos;string&apos; ? tag.indexOf(&apos;:&apos;) : -1;
+    if (idx &lt; 1) { // Not found or first character
+      toAppend.push(tag);
+    } else {
+      childCopy[tag.substring(0, idx)] = tag.substring(idx + 1);
+    }
+  });
+  const result = parent.map(tag =&gt; {
+    const idx = typeof tag === &apos;string&apos; ? tag.indexOf(&apos;:&apos;) : -1;
+    if (idx &lt; 1) { // Not found or first character
+      return tag;
+    }
+    const key = tag.substring(0, idx);
+    if (childCopy.hasOwnProperty(key)) {
+      const value = childCopy[key];
+      delete childCopy[key];
+      return `${key}:${value}`;
+    }
+    return tag;
+  });
+  Object.keys(childCopy).forEach(key =&gt; {
+    result.push(`${key}:${childCopy[key]}`);
+  });
+  return result.concat(toAppend);
+}
+
+/**
+ * Formats a date for use with DataDog
+ * @ignore
+ */
+function formatDate(date) {
+  let timestamp;
+  if (date instanceof Date) {
+    // Datadog expects seconds.
+    timestamp = Math.round(date.getTime() / 1000);
+  } else if (date instanceof Number) {
+    // Make sure it is an integer, not a float.
+    timestamp = Math.round(date);
+  }
+  return timestamp;
+}
+
+/**
+ * Converts int to a string IP
+ * @ignore
+ */
+function intToIP(int) {
+  const part1 = int &amp; 255;
+  const part2 = ((int &gt;&gt; 8) &amp; 255);
+  const part3 = ((int &gt;&gt; 16) &amp; 255);
+  const part4 = ((int &gt;&gt; 24) &amp; 255);
+
+  return `${part4}.${part3}.${part2}.${part1}`;
+}
+
+/**
+ * Returns the system default interface on Linux
+ * @ignore
+ */
+function getDefaultRoute() {
+  try {
+    const fileContents = fs.readFileSync(&apos;/proc/net/route&apos;, &apos;utf8&apos;); // eslint-disable-line no-sync
+    const routes = fileContents.split(&apos;\n&apos;);
+    for (const routeIdx in routes) {
+      const fields = routes[routeIdx].trim().split(&apos;\t&apos;);
+      if (fields[1] === &apos;00000000&apos;) {
+        const address = fields[2];
+        // Convert to little endian by splitting every 2 digits and reversing that list
+        const littleEndianAddress = address.match(/.{2}/g).reverse().join(&apos;&apos;);
+        return intToIP(parseInt(littleEndianAddress, 16));
+      }
+    }
+  } catch (e) {
+    console.error(&apos;Could not get default route from /proc/net/route&apos;);
+  }
+  return null;
+}
+
+/**
+ * High-resolution timer
+ * @ignore
+ */
+function createHrTimer() {
+  const start = process.hrtime();
+
+  return () =&gt; {
+    const durationComponents = process.hrtime(start);
+    const seconds = durationComponents[0];
+    const nanoseconds = durationComponents[1];
+    const duration = (seconds * 1000) + (nanoseconds / 1E6);
+    return duration;
+  };
+}
+
+module.exports = {
+  formatTags,
+  overrideTags,
+  formatDate,
+  getDefaultRoute,
+  createHrTimer
+};
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

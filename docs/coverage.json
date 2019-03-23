@@ -1,0 +1,44 @@
+{
+  "coverage": "61.81%",
+  "expectCount": 55,
+  "actualCount": 34,
+  "files": {
+    "lib/helpers.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "lib/statsd.js": {
+      "expectCount": 15,
+      "actualCount": 15,
+      "undocumentLines": []
+    },
+    "lib/transport.js": {
+      "expectCount": 33,
+      "actualCount": 12,
+      "undocumentLines": [
+        42,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        100,
+        102,
+        116,
+        121,
+        144,
+        145
+      ]
+    }
+  }
+}
