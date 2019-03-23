@@ -3,29 +3,69 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+
+defaults: &defaults
+  working_directory: ~/hot-shots
+  docker:
+    - image: circleci/node:lts-stretch
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest
-
-    working_directory: ~/hot-shots
-
+  test:
+    <<: *defaults
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
       - run: npm install
-
+      - run:
+          name: Run tests
+          command: npm test
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/hot-shots
+          paths: .
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/hot-shots
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/hot-shots/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+      - add_ssh_keys:
+          fingerprints:
+            - 2a:a1:25:9d:ec:75:9b:6d:49:c1:1e:37:f3:4b:a2:48
+      - run:
+          name: Generate docs
+          command: |
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "<email>"
+            git config user.name "Circleci Bot"
+            npm run gen-docs
+            git add docs/
+            git commit --allow-empty -m "Generate documentation for $(jq -r '.version' package.json)"
+            git tag v$(jq -r '.version' package.json)
+            git push --tags
 
-      # run tests!
-      - run: npm run test
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - test
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
