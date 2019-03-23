@@ -1,11 +1,9 @@
 CHANGELOG
 =========
 
-## 7.1.5 (2019-3-22)
-* @msindwan Fix more CI steps
-
-## 7.1.4 (2019-3-22)
+## 7.1.1 - 7.1.6 (2019-3-22)
 * @msindwan Update documentation
+* @msindwan Fix CI steps
 
 ## 7.1.0 (2019-3-18)
 * @msindwan mark unix-dgram as required
