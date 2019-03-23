@@ -2,7 +2,7 @@
 
 A StatsD client forked from https://github.com/brightcove/hot-shots with additional support for POSIX-compliant systems.
 
-[![CircleCI](https://circleci.com/gh/msindwan/hot-shots-posix.svg?style=svg)](https://circleci.com/gh/msindwan/hot-shots) [![npm version](https://badge.fury.io/js/hot-shots-posix.svg)](https://badge.fury.io/js/hot-shots-posix)
+[npm version](https://badge.fury.io/js/hot-shots-posix.svg)](https://badge.fury.io/js/hot-shots-posix)
 
 [API Documentation and usage](https://msindwan.github.io/hot-shots-posix/)
 
