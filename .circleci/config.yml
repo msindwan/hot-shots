@@ -54,6 +54,7 @@ jobs:
             npm run gen-docs
             git add docs/
             git commit --allow-empty -m "Generate documentation for $(jq -r '.version' package.json)"
+            git push
             git tag v$(jq -r '.version' package.json)
             git push --tags
 

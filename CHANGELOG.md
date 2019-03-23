@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 7.1.4 (2019-3-22)
+* @msindwan Update documentation
+
 ## 7.1.0 (2019-3-18)
 * @msindwan mark unix-dgram as required
 * @msindwan fix socket instantiation for unix_dgram protocol
