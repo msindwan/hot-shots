@@ -33,6 +33,7 @@ jobs:
   deploy:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ~/hot-shots
       - run:
@@ -40,7 +41,10 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/hot-shots/.npmrc
       - run:
           name: Publish package
-          command: npm publish --dry-run
+          command: npm publish
+      - add_ssh_keys:
+          fingerprints:
+            - 2a:a1:25:9d:ec:75:9b:6d:49:c1:1e:37:f3:4b:a2:48
       - run:
           name: Generate docs
           command: |
@@ -51,7 +55,7 @@ jobs:
             git add docs/
             git commit --allow-empty -m "Generate documentation for $(jq -r '.version' package.json)"
             git tag v$(jq -r '.version' package.json)
-            git push --tags --dry-run -q https://${DOCS_GITHUB_TOKEN}@github.com/msindwan/hot-shots-posix.git master
+            git push --tags
 
 workflows:
   version: 2
@@ -59,5 +63,9 @@ workflows:
     jobs:
       - test
       - deploy:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - test
