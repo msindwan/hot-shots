@@ -53,7 +53,7 @@ jobs:
             git config user.name "Circleci Bot"
             npm run gen-docs
             git add docs/
-            git commit --allow-empty -m "Generate documentation for $(jq -r '.version' package.json)"
+            git commit --allow-empty -m "[ci skip] Generate documentation for $(jq -r '.version' package.json)"
             git push
             git tag v$(jq -r '.version' package.json)
             git push --tags

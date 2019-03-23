@@ -4,7 +4,7 @@ A StatsD client forked from https://github.com/brightcove/hot-shots with additio
 
 [![CircleCI](https://circleci.com/gh/msindwan/hot-shots-posix.svg?style=svg)](https://circleci.com/gh/msindwan/hot-shots) [![npm version](https://badge.fury.io/js/hot-shots-posix.svg)](https://badge.fury.io/js/hot-shots-posix)
 
-[API Documentation and usage](https://msindwan.github.io/hot-shots-posix/docs)
+[API Documentation and usage](https://msindwan.github.io/hot-shots-posix/)
 
 ## Quick Start
 
