@@ -14,23 +14,19 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
       - run: npm install
       - run:
           name: Run tests
           command: npm test
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
       - persist_to_workspace:
           root: ~/hot-shots
           paths: .
@@ -54,7 +50,8 @@ jobs:
             npm run gen-docs
             git add docs/
             git commit --allow-empty -m "Generate documentation for $(jq -r '.version' package.json)"
-            git push --dry-run -q https://${DOCS_GITHUB_TOKEN}@github.com/msindwan/hot-shots-posix.git master
+            git tag v$(jq -r '.version' package.json)
+            git push --tags --dry-run -q https://${DOCS_GITHUB_TOKEN}@github.com/msindwan/hot-shots-posix.git master
 
 workflows:
   version: 2
