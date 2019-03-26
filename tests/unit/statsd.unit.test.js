@@ -67,6 +67,9 @@ describe('statsd with unix_dgram protocol', () => {
     expect(client.socket.send).toHaveBeenCalledTimes(1);
     expect(client.socket.send).toHaveBeenCalledWith(
       buffer,
+      0,
+      buffer.length,
+      '/var/run/datadog/dsd.socket',
       expect.any(Function)
     );
   });
@@ -85,6 +88,9 @@ describe('statsd with unix_dgram protocol', () => {
     expect(client.socket.send).toHaveBeenCalledTimes(1);
     expect(client.socket.send).toHaveBeenCalledWith(
       buffer,
+      0,
+      buffer.length,
+      '/var/run/datadog/dsd.socket',
       expect.any(Function)
     );
   });
@@ -104,6 +110,9 @@ describe('statsd with unix_dgram protocol', () => {
     expect(client.socket.send).toHaveBeenCalledTimes(1);
     expect(client.socket.send).toHaveBeenCalledWith(
       buffer,
+      0,
+      buffer.length,
+      '/var/run/datadog/dsd.socket',
       expect.any(Function)
     );
   });
@@ -131,6 +140,9 @@ describe('statsd with unix_dgram protocol', () => {
       expect(client.socket.send).toHaveBeenNthCalledWith(
         index + 1,
         buffer,
+        0,
+        buffer.length,
+        '/var/run/datadog/dsd.socket',
         expect.any(Function)
       );
     });
@@ -154,6 +166,9 @@ describe('statsd with unix_dgram protocol', () => {
       expect(client.socket.send).toHaveBeenCalledTimes(1);
       expect(client.socket.send).toHaveBeenCalledWith(
         buffer,
+        0,
+        buffer.length,
+        '/var/run/datadog/dsd.socket',
         expect.any(Function)
       );
       done();
@@ -176,6 +191,9 @@ describe('statsd with unix_dgram protocol', () => {
     expect(client.socket.send).toHaveBeenCalledTimes(1);
     expect(client.socket.send).toHaveBeenCalledWith(
       buffer,
+      0,
+      buffer.length,
+      '/var/run/datadog/dsd.socket',
       expect.any(Function)
     );
   });

@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 7.1.7 (2019-3-25)
+* @msindwan Attempt to fix connection issues with restarting agents
+
 ## 7.1.1 - 7.1.6 (2019-3-22)
 * @msindwan Update documentation
 * @msindwan Fix CI steps
