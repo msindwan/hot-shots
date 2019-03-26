@@ -1986,7 +1986,7 @@
     "__docId__": 72,
     "kind": "file",
     "name": "lib/transport.js",
-    "content": "const unixDgram = require('unix-dgram');\nconst helpers = require('./helpers');\nconst dgram = require('dgram');\nconst dns = require('dns');\nconst net = require('net');\n\n/**\n * @description Creates a socket with the arguments provided\n * @param {object} args\n * @param {string} args.host - The host to use for the socket\n * @param {number} args.port - The port to use for the socket\n * @param {number} args.path - The UDS path to use for the socket\n * @param {number} args.protocol - The protocol to use\n * @ignore\n * @throws Error if it fails to create the socket\n */\nfunction createSocket(args) {\n  let socket;\n\n  if (args.protocol === 'tcp') {\n    socket = net.connect(args.port, args.host);\n    socket.setKeepAlive(true);\n  } else if (args.protocol === 'unix_dgram') {\n    socket = unixDgram.createSocket('unix_dgram');\n    socket.connect(args.path);\n  } else {\n    socket = dgram.createSocket('udp4');\n  }\n\n  return socket;\n}\n\n/**\n * StatsD Transport\n * @description Base class for transporting StatsD Messages\n * @throws Error if it fails to create the socket\n * @ignore\n * NOTE: Adding new parameters to the constructor is deprecated- please use the\n * constructor as one options object.\n */\nclass Transport {\n  constructor(\n    host,\n    port,\n    prefix,\n    suffix,\n    globalize,\n    cacheDns,\n    mock,\n    globalTags,\n    maxBufferSize,\n    bufferFlushInterval,\n    telegraf,\n    sampleRate,\n    protocol\n  ) {\n    let options = host || {};\n    const self = this;\n\n    // Adding options below is DEPRECATED.  Use the options object instead.\n    if (arguments.length > 1 || typeof(host) === 'string') {\n      options = {\n        host        : host,\n        port        : port,\n        prefix      : prefix,\n        suffix      : suffix,\n        globalize   : globalize,\n        cacheDns    : cacheDns,\n        mock        : mock === true,\n        globalTags  : globalTags,\n        maxBufferSize : maxBufferSize,\n        bufferFlushInterval: bufferFlushInterval,\n        telegraf    : telegraf,\n        sampleRate  : sampleRate,\n        protocol    : protocol\n      };\n    }\n\n    // hidden global_tags option for backwards compatibility\n    options.globalTags = options.globalTags || options.global_tags;\n\n    this.protocol    = (options.protocol && options.protocol.toLowerCase());\n    this.host        = options.host || 'localhost';\n    this.port        = options.port || 8125;\n    this.path        = options.path || '';\n    this.prefix      = options.prefix || '';\n    this.suffix      = options.suffix || '';\n    this.mock        = options.mock === true;\n    this.globalTags  = typeof options.globalTags === 'object' ?\n        helpers.formatTags(options.globalTags, options.telegraf) : [];\n    this.telegraf    = options.telegraf || false;\n    this.maxBufferSize = options.maxBufferSize || 0;\n    this.sampleRate  = typeof options.sampleRate === 'number' ? options.sampleRate : 1;\n    this.bufferFlushInterval = options.bufferFlushInterval || 1000;\n    this.bufferHolder = options.isChild ? options.bufferHolder : { buffer: '' };\n    this.errorHandler = options.errorHandler;\n\n    // If we're mocking the client, create a buffer to record the outgoing calls.\n    if (this.mock) {\n      this.mockBuffer = [];\n    } else {\n      this.socket = options.isChild ? options.socket : createSocket({\n        host: this.host,\n        path: this.path,\n        port: this.port,\n        protocol: this.protocol\n      });\n\n      if (!options.isChild && options.errorHandler) {\n        this.socket.on('error', options.errorHandler);\n      }\n    }\n\n    // We only want a single flush event per parent and all its child clients\n    if (!options.isChild && this.maxBufferSize > 0) {\n      this.intervalHandle = setInterval(this.onBufferFlushInterval.bind(this), this.bufferFlushInterval);\n    }\n\n    if (options.isChild) {\n      if (options.dnsError) {\n        this.dnsError = options.dnsError;\n      }\n    } else if (options.cacheDns === true) {\n      dns.lookup(options.host, (err, address) => {\n        if (err === null) {\n          self.host = address;\n        } else {\n          self.dnsError = err;\n        }\n      });\n    }\n\n    if (options.globalize) {\n      global.statsd = this;\n    }\n\n    if (options.useDefaultRoute) {\n      const defaultRoute = helpers.getDefaultRoute();\n      if (defaultRoute) {\n        this.host = defaultRoute;\n      }\n    }\n\n    this.messagesInFlight = 0;\n    this.CHECKS = {\n      OK: 0,\n      WARNING: 1,\n      CRITICAL: 2,\n      UNKNOWN: 3,\n    };\n  }\n\n  /**\n   * Checks if stats is an array and sends all stats calling back once all have sent\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendAll(stat, value, type, sampleRate, tags, callback) {\n    let completed = 0;\n    let calledback = false;\n    let sentBytes = 0;\n    const self = this;\n\n    if (sampleRate && typeof sampleRate !== 'number') {\n      callback = tags;\n      tags = sampleRate;\n      sampleRate = undefined;\n    }\n\n    if (tags && typeof tags !== 'object') {\n      callback = tags;\n      tags = undefined;\n    }\n\n    /**\n     * Gets called once for each callback, when all callbacks return we will\n     * call back from the function\n     * @private\n     */\n    function onSend(error, bytes) {\n      completed += 1;\n      if (calledback) {\n        return;\n      }\n\n      if (error) {\n        if (typeof callback === 'function') {\n          calledback = true;\n          callback(error);\n        } else if (self.errorHandler) {\n          calledback = true;\n          self.errorHandler(error);\n        }\n        return;\n      }\n\n      if (bytes) {\n        sentBytes += bytes;\n      }\n\n      if (completed === stat.length && typeof callback === 'function') {\n        callback(null, sentBytes);\n      }\n    }\n\n    if (Array.isArray(stat)) {\n      stat.forEach(item => {\n        self.sendStat(item, value, type, sampleRate, tags, onSend);\n      });\n    } else {\n      this.sendStat(stat, value, type, sampleRate, tags, callback);\n    }\n  }\n\n  /**\n   * Sends a stat across the wire\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendStat(stat, value, type, sampleRate, tags, callback) {\n    let message = `${this.prefix + stat + this.suffix}:${value}|${type}`;\n    sampleRate = typeof sampleRate === 'number' ? sampleRate : this.sampleRate;\n    if (sampleRate < 1) {\n      if (Math.random() < sampleRate) {\n        message += `|@${sampleRate}`;\n      } else {\n        // don't want to send if we don't meet the sample ratio\n        return callback ? callback() : undefined;\n      }\n    }\n    this.send(message, tags, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {string[]|object} tags {Array} The tags to include (along with global tags). Optional.\n   * @param callback {Function=} Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  send(message, tags, callback) {\n    let mergedTags = this.globalTags;\n    if (tags && typeof tags === 'object') {\n      mergedTags = helpers.overrideTags(mergedTags, tags, this.telegraf);\n    }\n    if (mergedTags.length > 0) {\n      if (this.telegraf) {\n        message = message.split(':');\n        message = `${message[0]},${mergedTags.join(',').replace(/:/g, '=')}:${message.slice(1).join(':')}`;\n      } else {\n        message += `|#${mergedTags.join(',')}`;\n      }\n    }\n\n    this._send(message, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  _send(message, callback) {\n    // we may have a cached error rather than a cached lookup, so\n    // throw it on\n    if (this.dnsError) {\n      if (callback) {\n        return callback(this.dnsError);\n      } else if (this.errorHandler) {\n        return this.errorHandler(this.dnsError);\n      }\n      throw this.dnsError;\n    }\n\n    // Only send this stat if we're not a mock Client.\n    if (!this.mock) {\n      if (this.maxBufferSize === 0) {\n        this.sendMessage(message, callback);\n      } else {\n        this.enqueue(message, callback);\n      }\n    } else {\n      this.mockBuffer.push(message);\n      if (typeof callback === 'function') {\n        callback(null, 0);\n      }\n    }\n  }\n\n  /**\n   * Add the message to the buffer and flush the buffer if needed\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback\n   */\n  enqueue(message, callback) {\n    message += '\\n';\n\n    if (this.bufferHolder.buffer.length + message.length > this.maxBufferSize) {\n      this.flushQueue(callback);\n      this.bufferHolder.buffer += message;\n    }\n    else {\n      this.bufferHolder.buffer += message;\n      if (callback) {\n        callback(null);\n      }\n    }\n  }\n\n  /**\n   * Flush the buffer, sending on the messages\n   */\n  flushQueue(callback) {\n    this.sendMessage(this.bufferHolder.buffer, callback);\n    this.bufferHolder.buffer = '';\n  }\n\n  /**\n   * Send on the message through the socket\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendMessage(message, callback) {\n    // don't waste the time if we aren't sending anything\n    if (message === '' || this.mock) {\n      if (callback) {\n        callback(null);\n      }\n      return;\n    }\n\n    if (this.protocol === 'tcp' && message.lastIndexOf('\\n') !== message.length - 1) {\n      message += '\\n';\n    }\n\n    const handleCallback = (err) => {\n      this.messagesInFlight--;\n      const errFormatted = err ? new Error(`Error sending hot-shots message: ${err}`) : null;\n      if (errFormatted) {\n        errFormatted.code = err.code;\n      }\n      if (callback) {\n        callback(errFormatted);\n      } else if (errFormatted) {\n        if (this.errorHandler) {\n          this.errorHandler(errFormatted);\n        } else {\n          // emit error ourselves on the socket for backwards compatibility\n          this.socket.emit('error', errFormatted);\n        }\n      }\n    };\n\n    const buf = Buffer.from(message);\n    try {\n      this.messagesInFlight++;\n      if (this.protocol === 'tcp') {\n        this.socket.write(buf, 'ascii', handleCallback);\n      } else if (this.protocol === 'unix_dgram') {\n        this.socket.send(buf, handleCallback);\n      } else {\n        this.socket.send(buf, 0, buf.length, this.port, this.host, handleCallback);\n      }\n    } catch (err) {\n      handleCallback(err);\n    }\n  }\n\n  /**\n   * Called every bufferFlushInterval to flush any buffer that is around\n   */\n  onBufferFlushInterval() {\n    this.flushQueue();\n  }\n\n  /**\n   * Close the underlying socket and stop listening for data on it.\n   */\n  close(callback) {\n    // stop trying to flush the queue on an interval\n    if (this.intervalHandle) {\n      clearInterval(this.intervalHandle);\n    }\n\n    // flush the queue one last time, if needed\n    this.flushQueue((err) => {\n      if (err) {\n        if (callback) {\n          callback(err);\n        }\n        return;\n      }\n\n      // FIXME: we have entered callback hell, and this whole file is in need of an async rework\n\n      // wait until there are no more messages in flight before really closing the socket\n      let intervalAttempts = 0;\n      const waitForMessages = setInterval(() => {\n        intervalAttempts++;\n        if (intervalAttempts > 10) {\n          this.messagesInFlight = 0;\n        }\n        if (this.messagesInFlight <= 0) {\n          clearInterval(waitForMessages);\n          this._close(callback);\n        }\n      }, 50);\n    });\n  }\n\n  /**\n   * Really close the socket and handle any errors related to it\n   */\n  _close(callback) {\n    // error function to use in callback and catch below\n    let handledError = false;\n    const handleErr = (err) => {\n      const errMessage = `Error closing hot-shots socket: ${err}`;\n      if (!handledError) {\n        // The combination of catch and error can lead to some errors\n        // showing up twice.  So we just show one of the errors that occur\n        // on close.\n        handledError = true;\n\n        if (callback) {\n          callback(new Error(errMessage));\n        } else if (this.errorHandler) {\n          this.errorHandler(new Error(errMessage));\n        }\n      }\n    };\n\n    if (!this.mock) {\n      if (this.errorHandler) {\n        this.socket.removeListener('error', this.errorHandler);\n      }\n\n      // handle error and close events\n      this.socket.on('error', handleErr);\n      if (callback) {\n        this.socket.on('close', err => {\n          if (! handledError && callback) {\n            callback(err);\n          }\n        });\n      }\n\n      try {\n        if (this.protocol === 'tcp') {\n          this.socket.destroy();\n        } else {\n          this.socket.close();\n        }\n      } catch (err) {\n        handleErr(err);\n      }\n    } else if (callback) {\n      return callback(null);\n    }\n  }\n}\n\nmodule.exports = Transport;\n",
+    "content": "const unixDgram = require('unix-dgram');\nconst helpers = require('./helpers');\nconst dgram = require('dgram');\nconst dns = require('dns');\nconst net = require('net');\n\n/**\n * @description Creates a socket with the arguments provided\n * @param {object} args\n * @param {string} args.host - The host to use for the socket\n * @param {number} args.port - The port to use for the socket\n * @param {number} args.path - The UDS path to use for the socket\n * @param {number} args.protocol - The protocol to use\n * @ignore\n * @throws Error if it fails to create the socket\n */\nfunction createSocket(args) {\n  let socket;\n\n  if (args.protocol === 'tcp') {\n    socket = net.connect(args.port, args.host);\n    socket.setKeepAlive(true);\n  } else if (args.protocol === 'unix_dgram') {\n    socket = unixDgram.createSocket('unix_dgram');\n  } else {\n    socket = dgram.createSocket('udp4');\n  }\n\n  return socket;\n}\n\n/**\n * StatsD Transport\n * @description Base class for transporting StatsD Messages\n * @throws Error if it fails to create the socket\n * @ignore\n * NOTE: Adding new parameters to the constructor is deprecated- please use the\n * constructor as one options object.\n */\nclass Transport {\n  constructor(\n    host,\n    port,\n    prefix,\n    suffix,\n    globalize,\n    cacheDns,\n    mock,\n    globalTags,\n    maxBufferSize,\n    bufferFlushInterval,\n    telegraf,\n    sampleRate,\n    protocol\n  ) {\n    let options = host || {};\n    const self = this;\n\n    // Adding options below is DEPRECATED.  Use the options object instead.\n    if (arguments.length > 1 || typeof(host) === 'string') {\n      options = {\n        host        : host,\n        port        : port,\n        prefix      : prefix,\n        suffix      : suffix,\n        globalize   : globalize,\n        cacheDns    : cacheDns,\n        mock        : mock === true,\n        globalTags  : globalTags,\n        maxBufferSize : maxBufferSize,\n        bufferFlushInterval: bufferFlushInterval,\n        telegraf    : telegraf,\n        sampleRate  : sampleRate,\n        protocol    : protocol\n      };\n    }\n\n    // hidden global_tags option for backwards compatibility\n    options.globalTags = options.globalTags || options.global_tags;\n\n    this.protocol    = (options.protocol && options.protocol.toLowerCase());\n    this.host        = options.host || 'localhost';\n    this.port        = options.port || 8125;\n    this.path        = options.path || '';\n    this.prefix      = options.prefix || '';\n    this.suffix      = options.suffix || '';\n    this.mock        = options.mock === true;\n    this.globalTags  = typeof options.globalTags === 'object' ?\n        helpers.formatTags(options.globalTags, options.telegraf) : [];\n    this.telegraf    = options.telegraf || false;\n    this.maxBufferSize = options.maxBufferSize || 0;\n    this.sampleRate  = typeof options.sampleRate === 'number' ? options.sampleRate : 1;\n    this.bufferFlushInterval = options.bufferFlushInterval || 1000;\n    this.bufferHolder = options.isChild ? options.bufferHolder : { buffer: '' };\n    this.errorHandler = options.errorHandler;\n\n    // If we're mocking the client, create a buffer to record the outgoing calls.\n    if (this.mock) {\n      this.mockBuffer = [];\n    } else {\n      this.socket = options.isChild ? options.socket : createSocket({\n        host: this.host,\n        path: this.path,\n        port: this.port,\n        protocol: this.protocol\n      });\n\n      if (!options.isChild && options.errorHandler) {\n        this.socket.on('error', options.errorHandler);\n      }\n    }\n\n    // We only want a single flush event per parent and all its child clients\n    if (!options.isChild && this.maxBufferSize > 0) {\n      this.intervalHandle = setInterval(this.onBufferFlushInterval.bind(this), this.bufferFlushInterval);\n    }\n\n    if (options.isChild) {\n      if (options.dnsError) {\n        this.dnsError = options.dnsError;\n      }\n    } else if (options.cacheDns === true) {\n      dns.lookup(options.host, (err, address) => {\n        if (err === null) {\n          self.host = address;\n        } else {\n          self.dnsError = err;\n        }\n      });\n    }\n\n    if (options.globalize) {\n      global.statsd = this;\n    }\n\n    if (options.useDefaultRoute) {\n      const defaultRoute = helpers.getDefaultRoute();\n      if (defaultRoute) {\n        this.host = defaultRoute;\n      }\n    }\n\n    this.messagesInFlight = 0;\n    this.CHECKS = {\n      OK: 0,\n      WARNING: 1,\n      CRITICAL: 2,\n      UNKNOWN: 3,\n    };\n  }\n\n  /**\n   * Checks if stats is an array and sends all stats calling back once all have sent\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendAll(stat, value, type, sampleRate, tags, callback) {\n    let completed = 0;\n    let calledback = false;\n    let sentBytes = 0;\n    const self = this;\n\n    if (sampleRate && typeof sampleRate !== 'number') {\n      callback = tags;\n      tags = sampleRate;\n      sampleRate = undefined;\n    }\n\n    if (tags && typeof tags !== 'object') {\n      callback = tags;\n      tags = undefined;\n    }\n\n    /**\n     * Gets called once for each callback, when all callbacks return we will\n     * call back from the function\n     * @private\n     */\n    function onSend(error, bytes) {\n      completed += 1;\n      if (calledback) {\n        return;\n      }\n\n      if (error) {\n        if (typeof callback === 'function') {\n          calledback = true;\n          callback(error);\n        } else if (self.errorHandler) {\n          calledback = true;\n          self.errorHandler(error);\n        }\n        return;\n      }\n\n      if (bytes) {\n        sentBytes += bytes;\n      }\n\n      if (completed === stat.length && typeof callback === 'function') {\n        callback(null, sentBytes);\n      }\n    }\n\n    if (Array.isArray(stat)) {\n      stat.forEach(item => {\n        self.sendStat(item, value, type, sampleRate, tags, onSend);\n      });\n    } else {\n      this.sendStat(stat, value, type, sampleRate, tags, callback);\n    }\n  }\n\n  /**\n   * Sends a stat across the wire\n   * @param {string|string[]} stat {String|Array} The stat(s) to send\n   * @param {any} value The value to send\n   * @param {string} type The type of the metric\n   * @param {number} sampleRate The Number of times to sample (0 to 1). Optional.\n   * @param {string[]|object} tags The Array of tags to add to metrics. Optional.\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendStat(stat, value, type, sampleRate, tags, callback) {\n    let message = `${this.prefix + stat + this.suffix}:${value}|${type}`;\n    sampleRate = typeof sampleRate === 'number' ? sampleRate : this.sampleRate;\n    if (sampleRate < 1) {\n      if (Math.random() < sampleRate) {\n        message += `|@${sampleRate}`;\n      } else {\n        // don't want to send if we don't meet the sample ratio\n        return callback ? callback() : undefined;\n      }\n    }\n    this.send(message, tags, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {string[]|object} tags {Array} The tags to include (along with global tags). Optional.\n   * @param callback {Function=} Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  send(message, tags, callback) {\n    let mergedTags = this.globalTags;\n    if (tags && typeof tags === 'object') {\n      mergedTags = helpers.overrideTags(mergedTags, tags, this.telegraf);\n    }\n    if (mergedTags.length > 0) {\n      if (this.telegraf) {\n        message = message.split(':');\n        message = `${message[0]},${mergedTags.join(',').replace(/:/g, '=')}:${message.slice(1).join(':')}`;\n      } else {\n        message += `|#${mergedTags.join(',')}`;\n      }\n    }\n\n    this._send(message, callback);\n  }\n\n  /**\n   * Send a stat or event across the wire\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered (only if maxBufferSize == 0). Optional.\n   */\n  _send(message, callback) {\n    // we may have a cached error rather than a cached lookup, so\n    // throw it on\n    if (this.dnsError) {\n      if (callback) {\n        return callback(this.dnsError);\n      } else if (this.errorHandler) {\n        return this.errorHandler(this.dnsError);\n      }\n      throw this.dnsError;\n    }\n\n    // Only send this stat if we're not a mock Client.\n    if (!this.mock) {\n      if (this.maxBufferSize === 0) {\n        this.sendMessage(message, callback);\n      } else {\n        this.enqueue(message, callback);\n      }\n    } else {\n      this.mockBuffer.push(message);\n      if (typeof callback === 'function') {\n        callback(null, 0);\n      }\n    }\n  }\n\n  /**\n   * Add the message to the buffer and flush the buffer if needed\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback\n   */\n  enqueue(message, callback) {\n    message += '\\n';\n\n    if (this.bufferHolder.buffer.length + message.length > this.maxBufferSize) {\n      this.flushQueue(callback);\n      this.bufferHolder.buffer += message;\n    }\n    else {\n      this.bufferHolder.buffer += message;\n      if (callback) {\n        callback(null);\n      }\n    }\n  }\n\n  /**\n   * Flush the buffer, sending on the messages\n   */\n  flushQueue(callback) {\n    this.sendMessage(this.bufferHolder.buffer, callback);\n    this.bufferHolder.buffer = '';\n  }\n\n  /**\n   * Send on the message through the socket\n   *\n   * @param {string} message The constructed message without tags\n   * @param {function} callback Callback when message is done being delivered. Optional.\n   */\n  sendMessage(message, callback) {\n    // don't waste the time if we aren't sending anything\n    if (message === '' || this.mock) {\n      if (callback) {\n        callback(null);\n      }\n      return;\n    }\n\n    if (this.protocol === 'tcp' && message.lastIndexOf('\\n') !== message.length - 1) {\n      message += '\\n';\n    }\n\n    const handleCallback = (err) => {\n      this.messagesInFlight--;\n      const errFormatted = err ? new Error(`Error sending hot-shots message: ${err}`) : null;\n      if (errFormatted) {\n        errFormatted.code = err.code;\n      }\n      if (callback) {\n        callback(errFormatted);\n      } else if (errFormatted) {\n        if (this.errorHandler) {\n          this.errorHandler(errFormatted);\n        } else {\n          // emit error ourselves on the socket for backwards compatibility\n          this.socket.emit('error', errFormatted);\n        }\n      }\n    };\n\n    const buf = Buffer.from(message);\n    try {\n      this.messagesInFlight++;\n      if (this.protocol === 'tcp') {\n        this.socket.write(buf, 'ascii', handleCallback);\n      } else if (this.protocol === 'unix_dgram') {\n        this.socket.send(buf, 0, buf.length, this.path, handleCallback);\n      } else {\n        this.socket.send(buf, 0, buf.length, this.port, this.host, handleCallback);\n      }\n    } catch (err) {\n      handleCallback(err);\n    }\n  }\n\n  /**\n   * Called every bufferFlushInterval to flush any buffer that is around\n   */\n  onBufferFlushInterval() {\n    this.flushQueue();\n  }\n\n  /**\n   * Close the underlying socket and stop listening for data on it.\n   */\n  close(callback) {\n    // stop trying to flush the queue on an interval\n    if (this.intervalHandle) {\n      clearInterval(this.intervalHandle);\n    }\n\n    // flush the queue one last time, if needed\n    this.flushQueue((err) => {\n      if (err) {\n        if (callback) {\n          callback(err);\n        }\n        return;\n      }\n\n      // FIXME: we have entered callback hell, and this whole file is in need of an async rework\n\n      // wait until there are no more messages in flight before really closing the socket\n      let intervalAttempts = 0;\n      const waitForMessages = setInterval(() => {\n        intervalAttempts++;\n        if (intervalAttempts > 10) {\n          this.messagesInFlight = 0;\n        }\n        if (this.messagesInFlight <= 0) {\n          clearInterval(waitForMessages);\n          this._close(callback);\n        }\n      }, 50);\n    });\n  }\n\n  /**\n   * Really close the socket and handle any errors related to it\n   */\n  _close(callback) {\n    // error function to use in callback and catch below\n    let handledError = false;\n    const handleErr = (err) => {\n      const errMessage = `Error closing hot-shots socket: ${err}`;\n      if (!handledError) {\n        // The combination of catch and error can lead to some errors\n        // showing up twice.  So we just show one of the errors that occur\n        // on close.\n        handledError = true;\n\n        if (callback) {\n          callback(new Error(errMessage));\n        } else if (this.errorHandler) {\n          this.errorHandler(new Error(errMessage));\n        }\n      }\n    };\n\n    if (!this.mock) {\n      if (this.errorHandler) {\n        this.socket.removeListener('error', this.errorHandler);\n      }\n\n      // handle error and close events\n      this.socket.on('error', handleErr);\n      if (callback) {\n        this.socket.on('close', err => {\n          if (! handledError && callback) {\n            callback(err);\n          }\n        });\n      }\n\n      try {\n        if (this.protocol === 'tcp') {\n          this.socket.destroy();\n        } else {\n          this.socket.close();\n        }\n      } catch (err) {\n        handleErr(err);\n      }\n    } else if (callback) {\n      return callback(null);\n    }\n  }\n}\n\nmodule.exports = Transport;\n",
     "static": true,
     "longname": "/home/circleci/hot-shots/lib/transport.js",
     "access": "public",
@@ -2093,7 +2093,7 @@
     "importPath": "hot-shots-posix/lib/transport.js",
     "importStyle": "Transport",
     "description": "StatsD Transport",
-    "lineNumber": 41,
+    "lineNumber": 40,
     "ignore": true,
     "unknown": [
       {
@@ -2122,7 +2122,7 @@
     "longname": "lib/transport.js~Transport#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 42,
+    "lineNumber": 41,
     "undocument": true
   },
   {
@@ -2134,7 +2134,7 @@
     "longname": "lib/transport.js~Transport#protocol",
     "access": "public",
     "description": null,
-    "lineNumber": 82,
+    "lineNumber": 81,
     "undocument": true,
     "type": {
       "types": [
@@ -2151,7 +2151,7 @@
     "longname": "lib/transport.js~Transport#host",
     "access": "public",
     "description": null,
-    "lineNumber": 83,
+    "lineNumber": 82,
     "undocument": true,
     "type": {
       "types": [
@@ -2168,7 +2168,7 @@
     "longname": "lib/transport.js~Transport#port",
     "access": "public",
     "description": null,
-    "lineNumber": 84,
+    "lineNumber": 83,
     "undocument": true,
     "type": {
       "types": [
@@ -2185,7 +2185,7 @@
     "longname": "lib/transport.js~Transport#path",
     "access": "public",
     "description": null,
-    "lineNumber": 85,
+    "lineNumber": 84,
     "undocument": true,
     "type": {
       "types": [
@@ -2202,7 +2202,7 @@
     "longname": "lib/transport.js~Transport#prefix",
     "access": "public",
     "description": null,
-    "lineNumber": 86,
+    "lineNumber": 85,
     "undocument": true,
     "type": {
       "types": [
@@ -2219,7 +2219,7 @@
     "longname": "lib/transport.js~Transport#suffix",
     "access": "public",
     "description": null,
-    "lineNumber": 87,
+    "lineNumber": 86,
     "undocument": true,
     "type": {
       "types": [
@@ -2236,7 +2236,7 @@
     "longname": "lib/transport.js~Transport#mock",
     "access": "public",
     "description": null,
-    "lineNumber": 88,
+    "lineNumber": 87,
     "undocument": true,
     "type": {
       "types": [
@@ -2253,7 +2253,7 @@
     "longname": "lib/transport.js~Transport#globalTags",
     "access": "public",
     "description": null,
-    "lineNumber": 89,
+    "lineNumber": 88,
     "undocument": true,
     "type": {
       "types": [
@@ -2270,7 +2270,7 @@
     "longname": "lib/transport.js~Transport#telegraf",
     "access": "public",
     "description": null,
-    "lineNumber": 91,
+    "lineNumber": 90,
     "undocument": true,
     "type": {
       "types": [
@@ -2287,7 +2287,7 @@
     "longname": "lib/transport.js~Transport#maxBufferSize",
     "access": "public",
     "description": null,
-    "lineNumber": 92,
+    "lineNumber": 91,
     "undocument": true,
     "type": {
       "types": [
@@ -2304,7 +2304,7 @@
     "longname": "lib/transport.js~Transport#sampleRate",
     "access": "public",
     "description": null,
-    "lineNumber": 93,
+    "lineNumber": 92,
     "undocument": true,
     "type": {
       "types": [
@@ -2321,7 +2321,7 @@
     "longname": "lib/transport.js~Transport#bufferFlushInterval",
     "access": "public",
     "description": null,
-    "lineNumber": 94,
+    "lineNumber": 93,
     "undocument": true,
     "type": {
       "types": [
@@ -2338,7 +2338,7 @@
     "longname": "lib/transport.js~Transport#bufferHolder",
     "access": "public",
     "description": null,
-    "lineNumber": 95,
+    "lineNumber": 94,
     "undocument": true,
     "type": {
       "types": [
@@ -2355,7 +2355,7 @@
     "longname": "lib/transport.js~Transport#errorHandler",
     "access": "public",
     "description": null,
-    "lineNumber": 96,
+    "lineNumber": 95,
     "undocument": true,
     "type": {
       "types": [
@@ -2372,7 +2372,7 @@
     "longname": "lib/transport.js~Transport#mockBuffer",
     "access": "public",
     "description": null,
-    "lineNumber": 100,
+    "lineNumber": 99,
     "undocument": true,
     "type": {
       "types": [
@@ -2389,7 +2389,7 @@
     "longname": "lib/transport.js~Transport#socket",
     "access": "public",
     "description": null,
-    "lineNumber": 102,
+    "lineNumber": 101,
     "undocument": true,
     "type": {
       "types": [
@@ -2406,7 +2406,7 @@
     "longname": "lib/transport.js~Transport#intervalHandle",
     "access": "public",
     "description": null,
-    "lineNumber": 116,
+    "lineNumber": 115,
     "undocument": true,
     "type": {
       "types": [
@@ -2423,7 +2423,7 @@
     "longname": "lib/transport.js~Transport#dnsError",
     "access": "public",
     "description": null,
-    "lineNumber": 121,
+    "lineNumber": 120,
     "undocument": true,
     "type": {
       "types": [
@@ -2440,7 +2440,7 @@
     "longname": "lib/transport.js~Transport#messagesInFlight",
     "access": "public",
     "description": null,
-    "lineNumber": 144,
+    "lineNumber": 143,
     "undocument": true,
     "type": {
       "types": [
@@ -2457,7 +2457,7 @@
     "longname": "lib/transport.js~Transport#CHECKS",
     "access": "public",
     "description": null,
-    "lineNumber": 145,
+    "lineNumber": 144,
     "undocument": true,
     "type": {
       "types": [
@@ -2476,7 +2476,7 @@
     "longname": "lib/transport.js~Transport#sendAll",
     "access": "public",
     "description": "Checks if stats is an array and sends all stats calling back once all have sent",
-    "lineNumber": 162,
+    "lineNumber": 161,
     "params": [
       {
         "nullable": null,
@@ -2554,7 +2554,7 @@
     "longname": "lib/transport.js~Transport#sendStat",
     "access": "public",
     "description": "Sends a stat across the wire",
-    "lineNumber": 228,
+    "lineNumber": 227,
     "params": [
       {
         "nullable": null,
@@ -2636,7 +2636,7 @@
     "longname": "lib/transport.js~Transport#send",
     "access": "public",
     "description": "Send a stat or event across the wire",
-    "lineNumber": 248,
+    "lineNumber": 247,
     "params": [
       {
         "nullable": null,
@@ -2683,7 +2683,7 @@
     "longname": "lib/transport.js~Transport#_send",
     "access": "private",
     "description": "Send a stat or event across the wire",
-    "lineNumber": 270,
+    "lineNumber": 269,
     "params": [
       {
         "nullable": null,
@@ -2723,7 +2723,7 @@
     "longname": "lib/transport.js~Transport#enqueue",
     "access": "public",
     "description": "Add the message to the buffer and flush the buffer if needed",
-    "lineNumber": 303,
+    "lineNumber": 302,
     "params": [
       {
         "nullable": null,
@@ -2759,7 +2759,7 @@
     "longname": "lib/transport.js~Transport#flushQueue",
     "access": "public",
     "description": "Flush the buffer, sending on the messages",
-    "lineNumber": 321,
+    "lineNumber": 320,
     "params": [
       {
         "name": "callback",
@@ -2781,7 +2781,7 @@
     "longname": "lib/transport.js~Transport#sendMessage",
     "access": "public",
     "description": "Send on the message through the socket",
-    "lineNumber": 332,
+    "lineNumber": 331,
     "params": [
       {
         "nullable": null,
@@ -2817,7 +2817,7 @@
     "longname": "lib/transport.js~Transport#onBufferFlushInterval",
     "access": "public",
     "description": "Called every bufferFlushInterval to flush any buffer that is around",
-    "lineNumber": 381,
+    "lineNumber": 380,
     "params": [],
     "return": null
   },
@@ -2832,7 +2832,7 @@
     "longname": "lib/transport.js~Transport#close",
     "access": "public",
     "description": "Close the underlying socket and stop listening for data on it.",
-    "lineNumber": 388,
+    "lineNumber": 387,
     "params": [
       {
         "name": "callback",
@@ -2854,7 +2854,7 @@
     "longname": "lib/transport.js~Transport#_close",
     "access": "private",
     "description": "Really close the socket and handle any errors related to it",
-    "lineNumber": 423,
+    "lineNumber": 422,
     "params": [
       {
         "name": "callback",
@@ -2879,7 +2879,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"hot-shots-posix\",\n  \"description\": \"Node.js client for StatsD, DogStatsD, and Telegraf\",\n  \"license\": \"MIT\",\n  \"version\": \"7.1.6\",\n  \"author\": \"Steve Ivy\",\n  \"types\": \"./types.d.ts\",\n  \"contributors\": [\n    \"Russ Bradberry <rbradberry@gmail.com>\",\n    \"Brian Deitte <bdeitte@gmail.com>\"\n  ],\n  \"files\": [\n    \"lib/\",\n    \"README.md\",\n    \"CHANGELOG.md\",\n    \"LICENSE\",\n    \"types.d.ts\",\n    \"index.js\"\n  ],\n  \"keywords\": [\n    \"statsd\",\n    \"dogstatsd\",\n    \"datadog\",\n    \"metrics\",\n    \"telegraf\"\n  ],\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git://github.com/msindwan/hot-shots-posix.git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/msindwan/hot-shots/issues\"\n  },\n  \"directories\": {\n    \"lib\": \"./lib/\"\n  },\n  \"engines\": {\n    \"node\": \">=6.0.0\"\n  },\n  \"scripts\": {\n    \"test\": \"npm run test-unit && npm run test-integration\",\n    \"test-integration\": \"jest --colors --collectCoverage tests/integration/\",\n    \"test-unit\": \"jest --colors --collectCoverage tests/unit/\",\n    \"lint\": \"eslint lib/**/*.js tests/**/*.js\",\n    \"pretest\": \"npm run lint\",\n    \"benchmark\": \"node benchmark/statsd.js\",\n    \"gen-docs\": \"esdoc\"\n  },\n  \"devDependencies\": {\n    \"benchmark\": \"^2.1.4\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"5.9.x\",\n    \"husky\": \"^1.3.1\",\n    \"jest\": \"^24.3.1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run test\"\n    }\n  },\n  \"dependencies\": {\n    \"unix-dgram\": \"^2.0.2\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"hot-shots-posix\",\n  \"description\": \"Node.js client for StatsD, DogStatsD, and Telegraf\",\n  \"license\": \"MIT\",\n  \"version\": \"7.1.7\",\n  \"author\": \"Steve Ivy\",\n  \"types\": \"./types.d.ts\",\n  \"contributors\": [\n    \"Russ Bradberry <rbradberry@gmail.com>\",\n    \"Brian Deitte <bdeitte@gmail.com>\"\n  ],\n  \"files\": [\n    \"lib/\",\n    \"README.md\",\n    \"CHANGELOG.md\",\n    \"LICENSE\",\n    \"types.d.ts\",\n    \"index.js\"\n  ],\n  \"keywords\": [\n    \"statsd\",\n    \"dogstatsd\",\n    \"datadog\",\n    \"metrics\",\n    \"telegraf\"\n  ],\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git://github.com/msindwan/hot-shots-posix.git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/msindwan/hot-shots/issues\"\n  },\n  \"directories\": {\n    \"lib\": \"./lib/\"\n  },\n  \"engines\": {\n    \"node\": \">=6.0.0\"\n  },\n  \"scripts\": {\n    \"test\": \"npm run test-unit && npm run test-integration\",\n    \"test-integration\": \"jest --colors --collectCoverage tests/integration/\",\n    \"test-unit\": \"jest --colors --collectCoverage tests/unit/\",\n    \"lint\": \"eslint lib/**/*.js tests/**/*.js\",\n    \"pretest\": \"npm run lint\",\n    \"benchmark\": \"node benchmark/statsd.js\",\n    \"gen-docs\": \"esdoc\"\n  },\n  \"devDependencies\": {\n    \"benchmark\": \"^2.1.4\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"5.9.x\",\n    \"husky\": \"^1.3.1\",\n    \"jest\": \"^24.3.1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run test\"\n    }\n  },\n  \"dependencies\": {\n    \"unix-dgram\": \"^2.0.2\"\n  }\n}\n",
     "longname": "/home/circleci/hot-shots/package.json",
     "name": "package.json",
     "static": true,

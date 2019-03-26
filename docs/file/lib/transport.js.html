@@ -59,7 +59,6 @@ function createSocket(args) {
     socket.setKeepAlive(true);
   } else if (args.protocol === &apos;unix_dgram&apos;) {
     socket = unixDgram.createSocket(&apos;unix_dgram&apos;);
-    socket.connect(args.path);
   } else {
     socket = dgram.createSocket(&apos;udp4&apos;);
   }
@@ -403,7 +402,7 @@ class Transport {
       if (this.protocol === &apos;tcp&apos;) {
         this.socket.write(buf, &apos;ascii&apos;, handleCallback);
       } else if (this.protocol === &apos;unix_dgram&apos;) {
-        this.socket.send(buf, handleCallback);
+        this.socket.send(buf, 0, buf.length, this.path, handleCallback);
       } else {
         this.socket.send(buf, 0, buf.length, this.port, this.host, handleCallback);
       }
