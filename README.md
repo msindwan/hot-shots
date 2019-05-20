@@ -1,5 +1,7 @@
 # hot-shots-posix
 
+**NOTE: This package is deprecated. [hot-shots](https://github.com/brightcove/hot-shots) should support UDS going forward.** 
+
 A StatsD client forked from https://github.com/brightcove/hot-shots with additional support for POSIX-compliant systems.
 
 [![npm version](https://badge.fury.io/js/hot-shots-posix.svg)](https://badge.fury.io/js/hot-shots-posix)
@@ -21,7 +23,7 @@ const client = new StatsD({
 });
 
 // Start emitting metrics.
-client.incremment('my.stat');
+client.increment('my.stat');
 client.decrement('my.stat');
 ```
 
